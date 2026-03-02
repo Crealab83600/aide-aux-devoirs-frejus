@@ -1,0 +1,95 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navList = document.querySelector('.nav-list');
+
+    mobileMenuBtn.addEventListener('click', function() {
+        navList.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            navList.classList.remove('active');
+        });
+    });
+
+    // Header scroll effect
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Back to top button
+    const backToTopBtn = document.querySelector('.back-to-top');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Animate elements on scroll
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (elementPosition < windowHeight - 100) {
+                element.classList.add('animate');
+            }
+        });
+    };
+
+    // Add animation class to sections
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('animate-on-scroll');
+    });
+
+    // Run animation check on load and scroll
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Toggle pricing cards
+    const pricingToggle = document.getElementById('toggle');
+    const pricingCards = document.querySelectorAll('.pricing-card');
+
+    pricingToggle.addEventListener('change', function() {
+        pricingCards.forEach(card => {
+            card.classList.toggle('annual');
+        });
+    });
+
+    // Initialize any other components or plugins here
+});
