@@ -92,3 +92,30 @@ footer {
     text-align: center;
     padding: 20px;
 }
+.hidden {
+    display: none;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+input, select {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    background: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #023e8a;
+}
