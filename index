@@ -11,11 +11,14 @@
 <body>
 
 <header class="hero">
-    <h1>Raphaël Maury</h1>
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo RM Tutorat">
+        <h1>RM Tutorat</h1>
+    </div>
     <p>Aide aux devoirs à Fréjus • Python • Arduino</p>
 </header>
 
-<section>
+<section class="info">
     <h2>🕒 Horaires</h2>
     <ul class="schedule">
         <li>Mercredi : 14h – 18h</li>
@@ -24,7 +27,7 @@
     </ul>
 </section>
 
-<section>
+<section class="reservation">
     <h2>📅 Réservation</h2>
     <form onsubmit="sendMail(event)">
         <input type="text" id="name" placeholder="Nom élève" required>
@@ -40,20 +43,18 @@
     </form>
 </section>
 
-<section>
-    <h2>📊 Élèves accompagnés</h2>
-    <div class="counter">
-        <span id="count">0</span> élèves
-    </div>
+<section class="counter-section">
+    <h2>🟢 Élèves accompagnés</h2>
+    <div class="counter" id="animatedCount">0</div>
 </section>
 
-<section id="adminLogin">
+<section id="adminLogin" class="admin-login">
     <h2>🔒 Admin</h2>
     <input type="password" id="password" placeholder="Mot de passe admin">
     <button onclick="login()">Connexion</button>
 </section>
 
-<section id="adminPanel" class="hidden">
+<section id="adminPanel" class="hidden admin-panel">
     <h2>Dashboard Admin</h2>
     <p>Modifier nombre d'élèves :</p>
     <input type="number" id="newCount">
@@ -69,21 +70,36 @@
 <script>
 let studentCount = 0;
 
+// Animation compteur
+function animateCounter(target) {
+    const el = document.getElementById("animatedCount");
+    let current = 0;
+    const increment = Math.ceil(target / 50);
+    const interval = setInterval(() => {
+        current += increment;
+        if(current >= target) {
+            current = target;
+            clearInterval(interval);
+        }
+        el.innerText = current;
+    }, 30);
+}
+
+// Formulaire mail
 function sendMail(event) {
     event.preventDefault();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const level = document.getElementById("level").value;
-
     const subject = "Demande aide aux devoirs";
     const body = `Nom: ${name}%0D%0ANiveau: ${level}%0D%0AEmail: ${email}`;
-
     window.location.href = `mailto:raphaelmaury83600@gmail.com?subject=${subject}&body=${body}`;
 }
 
+// Admin login
 function login() {
     const pass = document.getElementById("password").value;
-    if(pass === "Raphael83600") {  // change le mot de passe ici
+    if(pass === "Raphael83600") {
         document.getElementById("adminPanel").classList.remove("hidden");
         alert("Connecté !");
     } else {
@@ -91,10 +107,14 @@ function login() {
     }
 }
 
+// Update compteur depuis admin
 function updateCount() {
     studentCount = document.getElementById("newCount").value;
-    document.getElementById("count").innerText = studentCount;
+    animateCounter(studentCount);
 }
+
+// Init compteur animé à 0
+animateCounter(studentCount);
 </script>
 
 </body>
