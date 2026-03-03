@@ -11,30 +11,9 @@
 <body>
 
 <header class="hero">
-    <h1>Aide aux devoirs à Fréjus</h1>
-    <p>Primaire • Collège • Lycée • Python • Arduino</p>
-    <a href="#reservation" class="btn">Réserver une séance</a>
+    <h1>Raphaël Maury</h1>
+    <p>Aide aux devoirs à Fréjus • Python • Arduino</p>
 </header>
-
-<section>
-    <h2>🎯 Pourquoi me choisir ?</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>📚 Toutes matières</h3>
-            <p>Du primaire au lycée.</p>
-        </div>
-
-        <div class="card">
-            <h3>💻 Spécialité codage</h3>
-            <p>Python & Arduino.</p>
-        </div>
-
-        <div class="card">
-            <h3>📈 Progression suivie</h3>
-            <p>Méthode claire et efficace.</p>
-        </div>
-    </div>
-</section>
 
 <section>
     <h2>🕒 Horaires</h2>
@@ -45,16 +24,20 @@
     </ul>
 </section>
 
-<section id="reservation">
-    <h2>📅 Réservation en ligne</h2>
-    <p>Remplissez le formulaire pour réserver votre séance.</p>
-
-    <iframe 
-        src="TON_LIEN_GOOGLE_FORM" 
-        width="100%" 
-        height="600" 
-        frameborder="0">
-    </iframe>
+<section>
+    <h2>📅 Réservation</h2>
+    <form onsubmit="sendMail(event)">
+        <input type="text" id="name" placeholder="Nom élève" required>
+        <input type="email" id="email" placeholder="Email parent" required>
+        <select id="level">
+            <option>Primaire</option>
+            <option>Collège</option>
+            <option>Lycée</option>
+            <option>Python</option>
+            <option>Arduino</option>
+        </select>
+        <button type="submit">Envoyer la demande</button>
+    </form>
 </section>
 
 <section>
@@ -64,16 +47,17 @@
     </div>
 </section>
 
-<section>
-    <h2>💳 Paiement en ligne (bientôt)</h2>
-    <p>Le paiement sécurisé sera disponible prochainement avec accord parental.</p>
+<section id="adminLogin">
+    <h2>🔒 Admin</h2>
+    <input type="password" id="password" placeholder="Mot de passe admin">
+    <button onclick="login()">Connexion</button>
 </section>
 
-<section class="admin">
-    <h2>🔒 Dashboard Admin (Privé)</h2>
-    <p>Total élèves actuels :</p>
-    <input type="number" id="adminInput" placeholder="Entrer nombre d'élèves">
-    <button onclick="updateCounter()">Mettre à jour</button>
+<section id="adminPanel" class="hidden">
+    <h2>Dashboard Admin</h2>
+    <p>Modifier nombre d'élèves :</p>
+    <input type="number" id="newCount">
+    <button onclick="updateCount()">Mettre à jour</button>
 </section>
 
 <footer>
@@ -83,14 +67,33 @@
 </footer>
 
 <script>
-let currentCount = 0;
+let studentCount = 0;
 
-function updateCounter() {
-    const value = document.getElementById("adminInput").value;
-    if(value >= 0) {
-        currentCount = value;
-        document.getElementById("count").innerText = currentCount;
+function sendMail(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const level = document.getElementById("level").value;
+
+    const subject = "Demande aide aux devoirs";
+    const body = `Nom: ${name}%0D%0ANiveau: ${level}%0D%0AEmail: ${email}`;
+
+    window.location.href = `mailto:raphaelmaury83600@gmail.com?subject=${subject}&body=${body}`;
+}
+
+function login() {
+    const pass = document.getElementById("password").value;
+    if(pass === "Raphael83600") {  // change le mot de passe ici
+        document.getElementById("adminPanel").classList.remove("hidden");
+        alert("Connecté !");
+    } else {
+        alert("Mot de passe incorrect");
     }
+}
+
+function updateCount() {
+    studentCount = document.getElementById("newCount").value;
+    document.getElementById("count").innerText = studentCount;
 }
 </script>
 
