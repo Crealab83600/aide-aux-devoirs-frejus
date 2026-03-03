@@ -1,51 +1,39 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     background: #f4f7fb;
     color: #333;
 }
 
-.hero {
+header.hero {
     background: linear-gradient(135deg, #0077b6, #00b4d8);
     color: white;
     text-align: center;
     padding: 80px 20px;
+    animation: fadeIn 2s;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #023e8a;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+header .logo img {
+    width: 60px;
+    height: 60px;
+}
+
+h1, h2 {
+    margin: 10px 0;
 }
 
 section {
-    max-width: 1000px;
-    margin: 60px auto;
+    max-width: 900px;
+    margin: 40px auto;
     padding: 20px;
-}
-
-h2 {
-    text-align: center;
-    color: #0077b6;
-}
-
-.grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    width: 250px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: fadeIn 1.5s;
 }
 
 .schedule {
@@ -59,31 +47,46 @@ h2 {
     font-weight: bold;
 }
 
-.counter {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #023e8a;
-}
-
-.admin {
-    background: #eef5ff;
-    padding: 30px;
-    border-radius: 12px;
-}
-
-.admin input {
-    padding: 10px;
-    margin-right: 10px;
+form input, form select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
 button {
-    padding: 10px 15px;
+    padding: 12px 20px;
     background: #0077b6;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #023e8a;
+}
+
+.counter-section {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00b4d8;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.admin-panel {
+    background: #eef5ff;
+    padding: 30px;
+    border-radius: 12px;
 }
 
 footer {
@@ -92,30 +95,9 @@ footer {
     text-align: center;
     padding: 20px;
 }
-.hidden {
-    display: none;
-}
 
-form input, form select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-}
-
-input, select {
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px 15px;
-    background: #0077b6;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #023e8a;
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
