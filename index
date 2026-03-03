@@ -1,303 +1,98 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cours particuliers et aide aux devoirs à Fréjus avec Raphael Maury - Soutien scolaire personnalisé en mathématiques, français, sciences et programmation">
-    <title>Raphael Maury | Cours Particuliers & Aide aux Devoirs | Fréjus</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aide aux devoirs Fréjus | Raphaël Maury</title>
+<meta name="description" content="Aide aux devoirs à Fréjus - Primaire au Lycée - Spécialité Python et Arduino">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- Header avec navigation -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="https://via.placeholder.com/50x50" alt="Logo Raphael Maury" class="logo-img">
-                <span>Raphael Maury</span>
-            </div>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#accueil" class="nav-link active">Accueil</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#tarifs" class="nav-link">Tarifs</a></li>
-                    <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+
+<header class="hero">
+    <h1>Aide aux devoirs à Fréjus</h1>
+    <p>Primaire • Collège • Lycée • Python • Arduino</p>
+    <a href="#reservation" class="btn">Réserver une séance</a>
+</header>
+
+<section>
+    <h2>🎯 Pourquoi me choisir ?</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>📚 Toutes matières</h3>
+            <p>Du primaire au lycée.</p>
         </div>
-    </header>
 
-    <!-- Section Hero -->
-    <section id="accueil" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Cours Particuliers & Aide aux Devoirs à Fréjus</h1>
-                <p class="hero-subtitle">Élève en première proposant un soutien scolaire personnalisé en mathématiques, français, sciences et programmation</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Prendre RDV</a>
-                    <a href="#services" class="btn btn-outline">Découvrir</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-text">Élèves accompagnés</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-text">Satisfaction</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">3</span>
-                        <span class="stat-text">Années d'expérience</span>
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+            <h3>💻 Spécialité codage</h3>
+            <p>Python & Arduino.</p>
         </div>
-    </section>
 
-    <!-- Section Services -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Mes Services</h2>
-            <p class="section-subtitle">Soutien scolaire adapté à chaque niveau et besoin</p>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3 class="service-title">Aide aux devoirs</h3>
-                    <p class="service-desc">Soutien scolaire pour toutes les matières du collège et lycée avec méthodologie personnalisée</p>
-                    <ul class="service-features">
-                        <li>Suivi régulier</li>
-                        <li>Préparation aux examens</li>
-                        <li>Méthodes de travail</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="service-title">Cours de Programmation</h3>
-                    <p class="service-desc">Apprentissage du Python et Arduino pour débutants et projets pratiques</p>
-                    <ul class="service-features">
-                        <li>Python</li>
-                        <li>Arduino</li>
-                        <li>Projets concrets</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="service-title">Préparation Examens</h3>
-                    <p class="service-desc">Préparation intensive pour le brevet et le baccalauréat toutes filières</p>
-                    <ul class="service-features">
-                        <li>Fiches de révision</li>
-                        <li>Annales corrigées</li>
-                        <li>Techniques d'examen</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="card">
+            <h3>📈 Progression suivie</h3>
+            <p>Méthode claire et efficace.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Section Tarifs -->
-    <section id="tarifs" class="pricing">
-        <div class="container">
-            <h2 class="section-title">Tarifs</h2>
-            <p class="section-subtitle">Des forfaits adaptés à vos besoins</p>
+<section>
+    <h2>🕒 Horaires</h2>
+    <ul class="schedule">
+        <li>Mercredi : 14h – 18h</li>
+        <li>Samedi : 10h – 18h</li>
+        <li>Dimanche : 14h – 18h</li>
+    </ul>
+</section>
 
-            <div class="pricing-toggle">
-                <span class="toggle-label">Particulier</span>
-                <input type="checkbox" id="toggle" class="toggle-input">
-                <label for="toggle" class="toggle-btn"></label>
-                <span class="toggle-label">Forfaits</span>
-            </div>
+<section id="reservation">
+    <h2>📅 Réservation en ligne</h2>
+    <p>Remplissez le formulaire pour réserver votre séance.</p>
 
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Collège</h3>
-                    <div class="pricing-price">
-                        <span class="price-amount">15€</span>
-                        <span class="price-period">/heure</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Toutes matières</li>
-                        <li>Préparation brevet</li>
-                        <li>Méthodologie</li>
-                        <li>Suivi par email</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Choisir</a>
-                </div>
+    <iframe 
+        src="TON_LIEN_GOOGLE_FORM" 
+        width="100%" 
+        height="600" 
+        frameborder="0">
+    </iframe>
+</section>
 
-                <div class="pricing-card featured">
-                    <div class="popular-badge">Populaire</div>
-                    <h3 class="pricing-title">Lycée</h3>
-                    <div class="pricing-price">
-                        <span class="price-amount">20€</span>
-                        <span class="price-period">/heure</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Toutes filières</li>
-                        <li>Préparation bac</li>
-                        <li>Approche personnalisée</li>
-                        <li>Support en ligne</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Choisir</a>
-                </div>
+<section>
+    <h2>📊 Élèves accompagnés</h2>
+    <div class="counter">
+        <span id="count">0</span> élèves
+    </div>
+</section>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Programmation</h3>
-                    <div class="pricing-price">
-                        <span class="price-amount">25€</span>
-                        <span class="price-period">/heure</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Python</li>
-                        <li>Arduino</li>
-                        <li>Projets pratiques</li>
-                        <li>Ressources exclusives</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Choisir</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section>
+    <h2>💳 Paiement en ligne (bientôt)</h2>
+    <p>Le paiement sécurisé sera disponible prochainement avec accord parental.</p>
+</section>
 
-    <!-- Section Témoignages -->
-    <section id="temoignages" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Témoignages</h2>
-            <p class="section-subtitle">Ce que disent mes élèves et leurs parents</p>
+<section class="admin">
+    <h2>🔒 Dashboard Admin (Privé)</h2>
+    <p>Total élèves actuels :</p>
+    <input type="number" id="adminInput" placeholder="Entrer nombre d'élèves">
+    <button onclick="updateCounter()">Mettre à jour</button>
+</section>
 
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <img src="https://via.placeholder.com/80x80" alt="Avis client" class="testimonial-img">
-                        <div class="testimonial-info">
-                            <h4 class="testimonial-name">Sophie M.</h4>
-                            <span class="testimonial-role">Parent d'élève</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"Grâce à Raphael, mon fils a non seulement progressé en mathématiques, mais il a aussi retrouvé confiance en lui. Les résultats sont visibles après seulement quelques semaines."</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
+<footer>
+    <p>📍 Fréjus</p>
+    <p>📧 raphaelmaury83600@gmail.com</p>
+    <p>© 2026 Raphaël Maury</p>
+</footer>
 
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <img src="https://via.placeholder.com/80x80" alt="Avis client" class="testimonial-img">
-                        <div class="testimonial-info">
-                            <h4 class="testimonial-name">Thomas R.</h4>
-                            <span class="testimonial-role">Élève en terminale</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"Les cours de programmation avec Raphael sont super! J'ai pu réaliser mon premier projet Arduino en seulement 5 séances. Il explique très clairement."</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+let currentCount = 0;
 
-    <!-- Section Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contactez-moi</h2>
-            <p class="section-subtitle">Prêt à commencer votre parcours d'apprentissage ?</p>
+function updateCounter() {
+    const value = document.getElementById("adminInput").value;
+    if(value >= 0) {
+        currentCount = value;
+        document.getElementById("count").innerText = currentCount;
+    }
+}
+</script>
 
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Informations de contact</h3>
-                    <ul class="contact-details">
-                        <li><i class="fas fa-envelope"></i> raphaelmaury83600@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> 06 12 34 56 78</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Fréjus, France</li>
-                    </ul>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Nom complet" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Adresse email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Sujet" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Votre message" class="form-control" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Envoyer le message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">Raphael Maury</h3>
-                    <p class="footer-text">Cours particuliers et aide aux devoirs pour les élèves du collège et lycée à Fréjus.</p>
-                    <div class="copyright">
-                        &copy; 2023 Raphael Maury. Tous droits réservés.
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h3 class="footer-title">Liens utiles</h3>
-                    <ul class="footer-links">
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#tarifs">Tarifs</a></li>
-                        <li><a href="#temoignages">Témoignages</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3 class="footer-title">Horaires</h3>
-                    <ul class="footer-links">
-                        <li>Lundi - Vendredi: 16h-20h</li>
-                        <li>Samedi: 10h-18h</li>
-                        <li>Dimanche: 14h-18h</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to top button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </a>
-
-    <script src="script.js"></script>
 </body>
 </html>
