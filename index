@@ -3,117 +3,271 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aide aux devoirs Fréjus | Raphaël Maury</title>
-<meta name="description" content="Aide aux devoirs à Fréjus - Primaire au Lycée - Spécialité Python et Arduino">
-<link rel="stylesheet" href="style.css">
+<title>RM Tutorat | Aide aux devoirs à Fréjus</title>
+<meta name="description" content="Aide aux devoirs à Fréjus - Primaire, Collège, Lycée - Spécialité Python & Arduino">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fb;
+    color:#1e293b;
+}
+
+header{
+    background:linear-gradient(135deg,#0077b6,#00b4d8);
+    color:white;
+    padding:80px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:2.8rem;
+    font-weight:700;
+}
+
+header p{
+    margin-top:15px;
+    font-size:1.1rem;
+    opacity:0.95;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.section{
+    margin-bottom:60px;
+}
+
+.section h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#0077b6;
+    font-size:1.8rem;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#023e8a;
+}
+
+.price{
+    font-size:1.5rem;
+    font-weight:700;
+    margin-top:15px;
+    color:#0077b6;
+}
+
+.schedule{
+    text-align:center;
+    font-weight:600;
+    line-height:2;
+}
+
+form{
+    max-width:500px;
+    margin:30px auto 0;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#0077b6;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#023e8a;
+}
+
+.counter{
+    text-align:center;
+    font-size:3rem;
+    font-weight:700;
+    color:#00b4d8;
+}
+
+.admin-panel{
+    display:none;
+    margin-top:20px;
+}
+
+footer{
+    background:#023e8a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:60px;
+    font-size:0.9rem;
+}
+
+@media(max-width:600px){
+    header h1{font-size:2rem;}
+}
+</style>
 </head>
 
 <body>
 
-<header class="hero">
-    <div class="logo">
-        <img src="images/logo.png" alt="Logo RM Tutorat">
-        <h1>RM Tutorat</h1>
-    </div>
-    <p>Aide aux devoirs à Fréjus • Python • Arduino</p>
+<header>
+    <h1>RM Tutorat - Fréjus</h1>
+    <p>Aide aux devoirs du Primaire au Lycée • Spécialité Python & Arduino</p>
 </header>
 
-<section class="info">
-    <h2>🕒 Horaires</h2>
-    <ul class="schedule">
-        <li>Mercredi : 14h – 18h</li>
-        <li>Samedi : 10h – 18h</li>
-        <li>Dimanche : 14h – 18h</li>
-    </ul>
-</section>
+<div class="container">
 
-<section class="reservation">
-    <h2>📅 Réservation</h2>
-    <form onsubmit="sendMail(event)">
-        <input type="text" id="name" placeholder="Nom élève" required>
-        <input type="email" id="email" placeholder="Email parent" required>
-        <select id="level">
-            <option>Primaire</option>
-            <option>Collège</option>
-            <option>Lycée</option>
-            <option>Python</option>
-            <option>Arduino</option>
-        </select>
-        <button type="submit">Envoyer la demande</button>
-    </form>
-</section>
+    <div class="section">
+        <h2>📘 Nos Offres</h2>
+        <div class="cards">
 
-<section class="counter-section">
-    <h2>🟢 Élèves accompagnés</h2>
-    <div class="counter" id="animatedCount">0</div>
-</section>
+            <div class="card">
+                <h3>Soutien Classique</h3>
+                <p>Maths • Français • Anglais • Méthodologie</p>
+                <div class="price">20€ / heure</div>
+            </div>
 
-<section id="adminLogin" class="admin-login">
-    <h2>🔒 Admin</h2>
-    <input type="password" id="password" placeholder="Mot de passe admin">
-    <button onclick="login()">Connexion</button>
-</section>
+            <div class="card">
+                <h3>Spécialité Codage</h3>
+                <p>Initiation Python • Projets Arduino • Logique informatique</p>
+                <div class="price">25€ / heure</div>
+            </div>
 
-<section id="adminPanel" class="hidden admin-panel">
-    <h2>Dashboard Admin</h2>
-    <p>Modifier nombre d'élèves :</p>
-    <input type="number" id="newCount">
-    <button onclick="updateCount()">Mettre à jour</button>
-</section>
+            <div class="card">
+                <h3>Pack Mensuel</h3>
+                <p>4h : 75€<br>8h : 140€</p>
+                <div class="price">Économique</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🕒 Horaires</h2>
+        <div class="schedule">
+            Mercredi : 14h – 18h<br>
+            Samedi : 10h – 18h<br>
+            Dimanche : 14h – 18h
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📅 Réservation</h2>
+        <form onsubmit="sendMail(event)">
+            <input type="text" id="name" placeholder="Nom élève" required>
+            <input type="email" id="email" placeholder="Email parent" required>
+            <select id="level">
+                <option>Primaire</option>
+                <option>Collège</option>
+                <option>Lycée</option>
+                <option>Python</option>
+                <option>Arduino</option>
+            </select>
+            <button type="submit">Envoyer la demande</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Élèves accompagnés à Fréjus</h2>
+        <div class="counter" id="counter">0</div>
+    </div>
+
+    <div class="section">
+        <h2>🔒 Admin</h2>
+        <input type="password" id="password" placeholder="Mot de passe admin">
+        <button onclick="login()">Connexion</button>
+
+        <div class="admin-panel" id="adminPanel">
+            <input type="number" id="newCount" placeholder="Nouveau nombre d'élèves">
+            <button onclick="updateCount()">Mettre à jour</button>
+        </div>
+    </div>
+
+</div>
 
 <footer>
-    <p>📍 Fréjus</p>
-    <p>📧 raphaelmaury83600@gmail.com</p>
-    <p>© 2026 Raphaël Maury</p>
+    📍 Fréjus • 📧 raphaelmaury83600@gmail.com<br>
+    © 2026 RM Tutorat
 </footer>
 
 <script>
-let studentCount = 0;
+let studentCount = localStorage.getItem("students") || 0;
+const counter = document.getElementById("counter");
 
-// Animation compteur
-function animateCounter(target) {
-    const el = document.getElementById("animatedCount");
+function animateCounter(target){
     let current = 0;
-    const increment = Math.ceil(target / 50);
-    const interval = setInterval(() => {
+    const increment = Math.ceil(target/40) || 1;
+    const interval = setInterval(()=>{
         current += increment;
-        if(current >= target) {
+        if(current >= target){
             current = target;
             clearInterval(interval);
         }
-        el.innerText = current;
-    }, 30);
+        counter.innerText = current;
+    },30);
 }
 
-// Formulaire mail
-function sendMail(event) {
-    event.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const level = document.getElementById("level").value;
-    const subject = "Demande aide aux devoirs";
-    const body = `Nom: ${name}%0D%0ANiveau: ${level}%0D%0AEmail: ${email}`;
-    window.location.href = `mailto:raphaelmaury83600@gmail.com?subject=${subject}&body=${body}`;
+function sendMail(e){
+    e.preventDefault();
+    const name=document.getElementById("name").value;
+    const email=document.getElementById("email").value;
+    const level=document.getElementById("level").value;
+    const subject="Demande aide aux devoirs Fréjus";
+    const body=`Nom: ${name}%0D%0ANiveau: ${level}%0D%0AEmail: ${email}`;
+    window.location.href=`mailto:raphaelmaury83600@gmail.com?subject=${subject}&body=${body}`;
 }
 
-// Admin login
-function login() {
-    const pass = document.getElementById("password").value;
-    if(pass === "Raphael83600") {
-        document.getElementById("adminPanel").classList.remove("hidden");
-        alert("Connecté !");
-    } else {
+function login(){
+    if(document.getElementById("password").value==="RM83600"){
+        document.getElementById("adminPanel").style.display="block";
+        alert("Connecté");
+    }else{
         alert("Mot de passe incorrect");
     }
 }
 
-// Update compteur depuis admin
-function updateCount() {
-    studentCount = document.getElementById("newCount").value;
+function updateCount(){
+    studentCount=document.getElementById("newCount").value;
+    localStorage.setItem("students",studentCount);
     animateCounter(studentCount);
 }
 
-// Init compteur animé à 0
 animateCounter(studentCount);
 </script>
 
