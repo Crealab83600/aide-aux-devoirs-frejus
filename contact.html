@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Réservation | Devoirs & Délices</title>
+    <meta name="description" content="Prenez contact avec Raphaël Maury pour réserver un bilan ou poser vos questions sur le soutien scolaire à Fréjus.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="nav-container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">🧁 <span class="font-fredoka">Devoirs & Délices</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Accueil & Méthode</a>
+                <a href="tarifs.html" class="nav-link">Packs & Tarifs</a>
+                <a href="avis.html" class="nav-link">Avis</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <a href="contact.html" class="btn-nav">Réserver un bilan</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="font-fredoka" style="font-size: 4rem;">Faisons connaissance ✉️</h1>
+                <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 16px auto 0;">Réservez votre bilan ou échangeons directement par téléphone ou e-mail.</p>
+            </div>
+        </section>
+
+        <section class="container contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="font-fredoka">Prêt à simplifier les devoirs ?</h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem;">Contactez-moi directement ou laissez-moi un message pour convenir d'un premier rendez-vous diagnostic.</p>
+                    
+                    <div class="contact-details">
+                        <div class="c-item">
+                            <div class="c-icon">📞</div>
+                            <div>
+                                <strong>Téléphone direct :</strong><br>
+                                <a href="tel:0650021565">06 50 02 15 65</a>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <div class="c-icon">📧</div>
+                            <div>
+                                <strong>Adresse e-mail :</strong><br>
+                                <a href="mailto:raphaelmaury83600@gmail.com">raphaelmaury83600@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <div class="c-icon">📍</div>
+                            <div>
+                                <strong>Zone de déplacement :</strong><br>
+                                Fréjus, Saint-Raphaël & environs
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <div class="c-icon">🎓</div>
+                            <div>
+                                <strong>Enseignant :</strong><br>
+                                Raphaël Maury
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Merci pour votre message ! Raphaël vous recontactera sous 24h.');">
+                    <div class="form-group">
+                        <label>Nom & Prénom du parent</label>
+                        <input type="text" class="form-control" placeholder="ex: Valérie Dupont" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Classe & Niveau de l'élève</label>
+                        <input type="text" class="form-control" placeholder="ex: 4ème, 1ère générale..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone ou Email de contact</label>
+                        <input type="text" class="form-control" placeholder="ex: 06 50 02 15 65" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Vos besoins / Précisions</label>
+                        <textarea class="form-control" placeholder="Expliquez brièvement les axes d'amélioration souhaités..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; justify-content: center;">Envoyer ma demande ➔</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="font-fredoka" style="font-size: 1.8rem; color: var(--primary-light); margin-bottom: 12px;">Devoirs & Délices 🧁</p>
+            <p>© 2026 Raphaël Maury - Soutien Scolaire & Pédagogie Positive à Fréjus</p>
+        </div>
+    </footer>
+
+</body>
+</html>
