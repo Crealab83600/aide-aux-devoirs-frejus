@@ -1,395 +1,200 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devoirs & Délices — Avis</title>
+<meta name="description" content="Devoirs & Délices — soutien scolaire à Fréjus et en visio partout en France.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 
-    <title>Avis — Devoirs et Délices</title>
+<style>
 
-    <link rel="stylesheet" href="style.css">
+:root{
+  --papier:#F3F5FB;
+  --papier-pur:#FFFFFF;
+  --encre:#1C2545;
+  --encre-douce:#4A5478;
+  --reglure:#A7B6E2;
+  --reglure-pale:#D8E0F4;
+  --framboise:#C0386A;
+  --framboise-sombre:#93264F;
+  --sucre:#FFEFD9;
+  --rayon:14px;
+  --max:68rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--papier);color:var(--encre);
+  font-family:"Newsreader",Georgia,serif;font-size:1.0625rem;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.nav a,.bouton,.etiquette{font-family:"Bricolage Grotesque","Helvetica Neue",sans-serif}
+h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;font-weight:800;letter-spacing:-.025em;margin:0 0 1rem}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.12;font-weight:600;letter-spacing:-.02em;margin:0 0 .9rem}
+h3{font-size:1.15rem;font-weight:600;letter-spacing:-.01em;margin:0 0 .35rem}
+p{margin:0 0 1rem;max-width:62ch}
+a{color:var(--framboise-sombre)}
+.enveloppe{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+/* ---------- Navigation ---------- */
+.entete{position:sticky;top:0;z-index:50;background:rgba(243,245,251,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--reglure-pale)}
+.entete .enveloppe{display:flex;align-items:center;gap:1.25rem;min-height:72px;flex-wrap:wrap;padding-top:.6rem;padding-bottom:.6rem}
+.marque{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;text-decoration:none;color:var(--encre);line-height:1.1;padding-left:.85rem;border-left:3px solid var(--framboise);margin-right:auto}
+.marque span{display:block;font-weight:400;font-size:.78rem;color:var(--encre-douce);letter-spacing:0}
+.nav{display:flex;gap:.25rem;flex-wrap:wrap;align-items:center}
+.nav a{font-size:.95rem;font-weight:400;text-decoration:none;color:var(--encre-douce);padding:.4rem .6rem;border-radius:8px}
+.nav a:hover{color:var(--encre);background:var(--reglure-pale)}
+.nav a[aria-current="page"]{color:var(--encre);font-weight:600;box-shadow:inset 0 -2px 0 var(--framboise)}
+.bouton{display:inline-block;background:var(--framboise);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:.6rem 1.1rem;border-radius:999px;border:none;cursor:pointer}
+.bouton:hover{background:var(--framboise-sombre)}
+.bouton.fantome{background:transparent;color:var(--encre);box-shadow:inset 0 0 0 1.5px var(--reglure)}
+.bouton.fantome:hover{background:var(--papier-pur)}
+:focus-visible{outline:3px solid var(--framboise);outline-offset:3px;border-radius:4px}
+
+/* ---------- Pages ---------- */
+.page{display:block;padding:3.5rem 0 4.5rem}
+
+/* ---------- Héros : page de cahier ---------- */
+.cahier{
+  background:var(--papier-pur);
+  background-image:
+    repeating-linear-gradient(to bottom,transparent 0 31px,var(--reglure-pale) 31px 32px),
+    linear-gradient(to right,transparent 0 calc(2.6rem - 1px),#E8A0B4 calc(2.6rem - 1px),#E8A0B4 2.6rem,transparent 2.6rem);
+  border:1px solid var(--reglure-pale);border-radius:var(--rayon);
+  padding:3rem 2rem 2.5rem 3.6rem;margin-bottom:2.5rem;
+}
+@media (max-width:600px){.cahier{padding:2rem 1.2rem 1.8rem 2.4rem;background-size:auto, auto}}
+.cahier h1{margin-bottom:.6rem}
+.accroche{font-size:1.3rem;font-style:italic;color:var(--encre-douce);max-width:34ch;margin-bottom:1.6rem}
+.actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.8rem}
+
+/* ---------- Repères clés ---------- */
+.reperes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--reglure-pale);border:1px solid var(--reglure-pale);border-radius:var(--rayon);overflow:hidden;margin-bottom:3.5rem}
+.repere{background:var(--papier-pur);padding:1.2rem 1.3rem}
+.repere strong{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.05rem}
+.repere span{font-size:.95rem;color:var(--encre-douce)}
+
+/* ---------- Blocs ---------- */
+.bloc{margin-bottom:3.5rem}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;align-items:start}
+.piliers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem;margin-top:1.8rem}
+.pilier{padding-left:1rem;border-left:2px solid var(--reglure)}
+.pilier:last-child{border-left-color:var(--framboise)}
+.pilier p{font-size:.98rem;color:var(--encre-douce);margin:0}
+
+.liste-propre{list-style:none;padding:0;margin:0}
+.liste-propre li{padding:.55rem 0;border-bottom:1px solid var(--reglure-pale)}
+.liste-propre li:last-child{border-bottom:none}
+
+.matieres{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 0;padding:0;list-style:none}
+.matieres li{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:999px;padding:.35rem .9rem;font-size:.95rem}
+
+.prestation{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:var(--rayon);padding:1.4rem 1.5rem;margin-bottom:1rem}
+.prestation p{margin:0;color:var(--encre-douce);font-size:1rem}
+
+/* ---------- Délices ---------- */
+.delices{background:var(--sucre);border-radius:var(--rayon);padding:2rem 2rem;border:1px solid #F0DCC0}
+.delices h2{margin-top:0}
+.delices p{color:#5E4630}
+.alerte-allergenes{font-size:.95rem;background:var(--papier-pur);border-left:3px solid var(--framboise);padding:.8rem 1rem;border-radius:0 8px 8px 0;margin-top:1.2rem}
+.alerte-allergenes p{margin:0;color:var(--encre)}
+
+/* ---------- Tarifs ---------- */
+.tarifs{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.2rem;margin-bottom:2rem}
+.tarif{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:var(--rayon);padding:1.5rem}
+.tarif.pref{border-color:var(--framboise);box-shadow:0 0 0 1px var(--framboise)}
+.prix{font-family:"Bricolage Grotesque",sans-serif;font-size:2.1rem;font-weight:800;letter-spacing:-.03em;display:block;margin:.4rem 0 .2rem}
+.prix em{font-size:.9rem;font-weight:400;font-style:normal;color:var(--encre-douce);letter-spacing:0}
+.tarif ul{padding-left:1.1rem;margin:.8rem 0 0;font-size:.97rem;color:var(--encre-douce)}
+
+/* ---------- FAQ ---------- */
+details{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:10px;padding:.9rem 1.1rem;margin-bottom:.6rem}
+summary{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;cursor:pointer;font-size:1rem}
+details p{margin:.7rem 0 0;color:var(--encre-douce);font-size:.98rem}
+
+/* ---------- Pied de page ---------- */
+.pied{border-top:1px solid var(--reglure-pale);background:var(--papier-pur);padding:2.5rem 0;font-size:.94rem;color:var(--encre-douce)}
+.pied .enveloppe{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem}
+.pied a{color:var(--encre-douce);text-decoration:none;display:block;padding:.15rem 0}
+.pied a:hover{color:var(--framboise-sombre);text-decoration:underline}
+.pied h3{font-size:.95rem;margin-bottom:.5rem}
+.contacts{display:grid;gap:.9rem;margin-top:1.4rem}
+.contact-carte{display:block;background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:var(--rayon);padding:1.2rem 1.4rem;text-decoration:none;color:var(--encre)}
+.contact-carte:hover{border-color:var(--framboise)}
+.contact-quoi{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:.92rem;color:var(--encre-douce)}
+.contact-valeur{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-.02em;color:var(--framboise-sombre);word-break:break-word;margin:.15rem 0 .25rem}
+.contact-carte .note{display:block}
+.a-completer{background:#FFF8E1;border:1px dashed #D8B45A;border-radius:8px;padding:.7rem .9rem;font-size:.9rem;color:#6B5420;margin:1rem 0}
+.a-completer p{margin:0;max-width:none}
+
+/* ---------- Navigation multipage ---------- */
+.nav a.active{color:var(--encre);font-weight:600;box-shadow:inset 0 -2px 0 var(--framboise)}
+.avis-vide{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:var(--rayon);padding:2rem}
+.avis-vide p{color:var(--encre-douce)}
+
+</style>
 </head>
-
 <body>
-
-<header>
-    <div class="container nav">
-        <a href="index.html" class="logo">
-            Devoirs <span>&</span> Délices
-        </a>
-
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="tarifs.html">Tarifs</a>
-            <a href="avis.html" class="active">Avis</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <a href="contact.html" class="btn">
-            Réserver une séance
-        </a>
-    </div>
+<header class="entete">
+  <div class="enveloppe">
+    <a class="marque" href="index.html">Devoirs &amp; Délices<span>Fréjus &amp; visio</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#qui">Qui suis-je</a>
+      <a href="index.html#cours">Cours & matières</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="avis.html" class="active">Avis</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="bouton">Demander une séance</a>
+    </nav>
+  </div>
 </header>
-
-
 <main>
-
-    <!-- HERO -->
-    <section class="hero small-hero">
-        <div class="container">
-            <p class="eyebrow">Ils nous font confiance</p>
-
-            <h1>
-                Les avis de nos familles
-            </h1>
-
-            <p>
-                Découvrez les expériences des élèves et des parents
-                qui nous ont fait confiance.
-            </p>
-        </div>
-    </section>
-
-
-    <!-- AVIS -->
-    <section class="section">
-        <div class="container">
-
-            <div class="section-title">
-                <p class="eyebrow">Témoignages</p>
-                <h2>Ce qu'ils pensent de nous</h2>
-            </div>
-
-
-            <!-- Avis déjà présents -->
-            <div class="reviews-grid" id="reviews">
-
-                <article class="review-card">
-                    <div class="stars">★★★★★</div>
-
-                    <p>
-                        « Mon fils a repris confiance en lui et ses résultats
-                        se sont vraiment améliorés. Les séances sont sérieuses
-                        mais toujours agréables. »
-                    </p>
-
-                    <strong>Sophie M.</strong>
-                    <span>Parent d'élève</span>
-                </article>
-
-
-                <article class="review-card">
-                    <div class="stars">★★★★★</div>
-
-                    <p>
-                        « Très bonne expérience. Les explications sont claires
-                        et adaptées au niveau de l'élève. »
-                    </p>
-
-                    <strong>Karim B.</strong>
-                    <span>Parent d'élève</span>
-                </article>
-
-
-                <article class="review-card">
-                    <div class="stars">★★★★★</div>
-
-                    <p>
-                        « Une aide précieuse pour les devoirs et les révisions.
-                        L'accompagnement est vraiment personnalisé. »
-                    </p>
-
-                    <strong>Léa R.</strong>
-                    <span>Élève</span>
-                </article>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- AJOUTER UN AVIS -->
-    <section class="section add-review-section">
-
-        <div class="container">
-
-            <div class="section-title">
-                <p class="eyebrow">Votre expérience</p>
-
-                <h2>Ajouter un avis</h2>
-
-                <p>
-                    Vous avez utilisé nos services ? Partagez votre expérience.
-                </p>
-            </div>
-
-
-            <form id="reviewForm" class="review-form">
-
-                <div class="field">
-                    <label for="reviewName">Votre prénom</label>
-
-                    <input
-                        type="text"
-                        id="reviewName"
-                        placeholder="Ex : Marie"
-                        required
-                    >
-                </div>
-
-
-                <div class="field">
-
-                    <label for="reviewType">
-                        Vous êtes
-                    </label>
-
-                    <select id="reviewType" required>
-
-                        <option value="">
-                            Choisir...
-                        </option>
-
-                        <option value="Parent d'élève">
-                            Parent d'élève
-                        </option>
-
-                        <option value="Élève">
-                            Élève
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="field">
-
-                    <label>
-                        Votre note
-                    </label>
-
-                    <div class="rating">
-
-                        <label>
-                            <input type="radio" name="rating" value="1" required>
-                            ★
-                        </label>
-
-                        <label>
-                            <input type="radio" name="rating" value="2">
-                            ★
-                        </label>
-
-                        <label>
-                            <input type="radio" name="rating" value="3">
-                            ★
-                        </label>
-
-                        <label>
-                            <input type="radio" name="rating" value="4">
-                            ★
-                        </label>
-
-                        <label>
-                            <input type="radio" name="rating" value="5">
-                            ★
-                        </label>
-
-                    </div>
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="reviewMessage">
-                        Votre avis
-                    </label>
-
-                    <textarea
-                        id="reviewMessage"
-                        rows="5"
-                        placeholder="Écrivez votre avis..."
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <button type="submit" class="btn">
-                    Publier mon avis
-                </button>
-
-                <p id="reviewMessageStatus" class="review-status"></p>
-
-            </form>
-
-        </div>
-
-    </section>
-
-
-    <!-- CTA -->
-    <section class="section cta-section">
-
-        <div class="container">
-
-            <h2>
-                Besoin d'un accompagnement ?
-            </h2>
-
-            <p>
-                Contactez-nous pour organiser une première séance.
-            </p>
-
-            <a href="contact.html" class="btn">
-                Nous contacter
-            </a>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<footer>
-
-    <div class="container">
-
-        <p>
-            © 2026 Devoirs et Délices — Soutien scolaire à domicile, Fréjus.
-        </p>
-
+<section class="page active" id="avis">
+  <div class="enveloppe">
+    <h1>Avis</h1>
+    <p class="accroche">Les premiers retours arriveront après les premières séances.</p>
+    <div class="bloc">
+      <div class="avis-vide">
+        <h2>Votre avis compte</h2>
+        <p>Devoirs &amp; Délices démarre. Je préfère ne pas inventer de témoignages : cette page sera complétée avec de vrais retours, avec l'accord des personnes concernées.</p>
+      </div>
     </div>
-
+    <div class="bloc">
+      <h2>Vous souhaitez poser une question ?</h2>
+      <p>Pour connaître les disponibilités ou demander une première séance, le plus simple est de m'écrire ou de m'appeler.</p>
+      <a class="bouton" href="contact.html">Me contacter</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="pied">
+  <div class="enveloppe">
+    <div>
+      <h3>Devoirs &amp; Délices</h3>
+      <p>Soutien scolaire pour les 12–18 ans, à Fréjus et en visio.</p>
+      <a href="mailto:raphaelmaury83600@gmail.com">raphaelmaury83600@gmail.com</a>
+      <a href="tel:+33650021565">06 50 02 15 65</a>
+    </div>
+    <div>
+      <h3>Le site</h3>
+      <a href="index.html">Accueil</a>
+      <a href="index.html#qui">Qui suis-je</a>
+      <a href="index.html#cours">Cours &amp; matières</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="avis.html">Avis</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h3>Informations</h3>
+      <a href="contact.html#mentions">Mentions légales</a>
+      <a href="contact.html#confidentialite">Politique de confidentialité</a>
+    </div>
+  </div>
 </footer>
-
-
-<script>
-
-const form = document.getElementById("reviewForm");
-const reviewsContainer = document.getElementById("reviews");
-const statusMessage = document.getElementById("reviewMessageStatus");
-
-
-// Charger les avis enregistrés
-function loadReviews() {
-
-    const reviews =
-        JSON.parse(localStorage.getItem("devoirsDelicesReviews")) || [];
-
-    reviews.forEach(review => {
-        displayReview(review);
-    });
-}
-
-
-// Afficher un avis
-function displayReview(review) {
-
-    const article = document.createElement("article");
-
-    article.className = "review-card new-review";
-
-    const stars = "★".repeat(review.rating) +
-                  "☆".repeat(5 - review.rating);
-
-    article.innerHTML = `
-        <div class="stars">${stars}</div>
-
-        <p>
-            « ${escapeHTML(review.message)} »
-        </p>
-
-        <strong>${escapeHTML(review.name)}</strong>
-
-        <span>${escapeHTML(review.type)}</span>
-    `;
-
-    reviewsContainer.appendChild(article);
-}
-
-
-// Empêcher l'injection de HTML
-function escapeHTML(text) {
-
-    const div = document.createElement("div");
-
-    div.textContent = text;
-
-    return div.innerHTML;
-}
-
-
-// Ajouter un nouvel avis
-form.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const name =
-        document.getElementById("reviewName").value.trim();
-
-    const type =
-        document.getElementById("reviewType").value;
-
-    const message =
-        document.getElementById("reviewMessage").value.trim();
-
-    const rating =
-        document.querySelector(
-            'input[name="rating"]:checked'
-        ).value;
-
-
-    const review = {
-        name: name,
-        type: type,
-        message: message,
-        rating: Number(rating)
-    };
-
-
-    // Récupérer les anciens avis
-    const reviews =
-        JSON.parse(localStorage.getItem("devoirsDelicesReviews")) || [];
-
-
-    // Ajouter le nouvel avis
-    reviews.push(review);
-
-
-    // Sauvegarder
-    localStorage.setItem(
-        "devoirsDelicesReviews",
-        JSON.stringify(reviews)
-    );
-
-
-    // Afficher immédiatement
-    displayReview(review);
-
-
-    // Réinitialiser le formulaire
-    form.reset();
-
-
-    // Message de confirmation
-    statusMessage.textContent =
-        "Merci ! Votre avis a bien été ajouté.";
-
-    statusMessage.classList.add("success");
-
-});
-
-
-// Charger les avis au démarrage
-loadReviews();
-
-</script>
-
 </body>
 </html>
-```
