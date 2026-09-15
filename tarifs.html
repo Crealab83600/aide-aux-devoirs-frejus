@@ -4,169 +4,579 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tarifs — Devoirs et Délices</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           PAGE TARIFS
+        ========================= */
+
+        .pricing-hero {
+            padding: 90px 0 70px;
+            text-align: center;
+        }
+
+        .pricing-hero .eyebrow {
+            margin-bottom: 15px;
+        }
+
+        .pricing-hero h1 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            margin: 0 auto 22px;
+            max-width: 850px;
+        }
+
+        .pricing-hero p {
+            max-width: 680px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .pricing-section {
+            padding: 40px 0 100px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 32px 26px;
+            border-radius: 24px;
+            background: var(--cream, #f8f3e9);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .10);
+        }
+
+        .pricing-card.featured {
+            background: var(--green, #274c3b);
+            color: white;
+            border-color: transparent;
+        }
+
+        .pricing-card.featured .price-description,
+        .pricing-card.featured li {
+            color: rgba(255, 255, 255, .82);
+        }
+
+        .pricing-card h2 {
+            font-family: "Fraunces", serif;
+            font-size: 27px;
+            line-height: 1.15;
+            margin: 0 0 12px;
+        }
+
+        .price {
+            font-family: "Fraunces", serif;
+            font-size: 43px;
+            font-weight: 700;
+            margin: 10px 0 5px;
+        }
+
+        .price small {
+            font-family: "Karla", sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .price-description {
+            color: #5f625d;
+            line-height: 1.6;
+            min-height: 78px;
+            margin-bottom: 22px;
+        }
+
+        .pricing-card ul {
+            padding: 0;
+            margin: 0 0 28px;
+            list-style: none;
+        }
+
+        .pricing-card li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+            color: #4e514d;
+        }
+
+        .pricing-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 700;
+        }
+
+        .pricing-card .btn {
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .pricing-card.featured .btn {
+            background: white;
+            color: var(--green, #274c3b);
+        }
+
+        /* Badge */
+        .pricing-badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--orange, #e49a5c);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Goûter */
+        .snack-section {
+            padding: 90px 0;
+            background: var(--cream, #f8f3e9);
+        }
+
+        .snack-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .snack-content h2 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(34px, 4vw, 52px);
+            line-height: 1.1;
+            margin: 0 0 20px;
+        }
+
+        .snack-content p {
+            font-size: 17px;
+            line-height: 1.75;
+            color: #555953;
+        }
+
+        .snack-box {
+            padding: 35px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .07);
+        }
+
+        .snack-box h3 {
+            font-family: "Fraunces", serif;
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        .snack-box ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .snack-box li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .08);
+        }
+
+        .snack-box li:last-child {
+            border-bottom: 0;
+        }
+
+        /* CTA */
+        .pricing-cta {
+            padding: 90px 0;
+            text-align: center;
+        }
+
+        .pricing-cta h2 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(34px, 4vw, 52px);
+            margin: 0 0 15px;
+        }
+
+        .pricing-cta p {
+            margin: 0 auto 28px;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .snack-content {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-hero {
+                padding: 65px 0 45px;
+            }
+
+            .pricing-section {
+                padding-bottom: 70px;
+            }
+
+            .snack-section,
+            .pricing-cta {
+                padding: 65px 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <nav class="navbar">
-        <a href="index.html" class="logo">Devoirs et Délices</a>
+<!-- =========================
+     HEADER
+========================= -->
 
-        <div class="nav-links">
+<header>
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+            Devoirs <span>&</span> Délices
+        </a>
+
+        <nav>
             <a href="index.html">Accueil</a>
-            <a href="tarifs.html">Tarifs</a>
+            <a href="tarifs.html" class="active">Tarifs</a>
             <a href="avis.html">Avis</a>
-            <a href="contact.html" class="nav-button">Réserver</a>
-        </div>
-    </nav>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <a href="contact.html" class="btn">
+            Réserver une séance
+        </a>
+
+    </div>
 </header>
+
 
 <main>
 
-<section class="section">
+<!-- =========================
+     HERO
+========================= -->
 
-    <div class="section-title">
-        <span>LA CARTE DU GOÛTER</span>
+<section class="pricing-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            Des formules simples
+        </p>
 
         <h1>
-            Des formules simples,
-            adaptées à votre rythme
+            Des tarifs clairs,<br>
+            pour apprendre sereinement.
         </h1>
 
         <p>
-            Choisissez la formule d'accompagnement qui
-            correspond aux besoins de votre enfant.
-            Le goûter maison est compris.
+            Choisissez la formule qui correspond le mieux
+            aux besoins de votre enfant.
         </p>
-    </div>
-
-    <div class="subjects">
-
-        <article class="subject-card">
-
-            <div class="icon">🍪</div>
-
-            <h3>Le Goûter Solo</h3>
-
-            <p>
-                Une séance à l'unité, idéale pour un coup
-                de pouce ponctuel avant un contrôle.
-            </p>
-
-            <br>
-
-            <strong>28 €</strong>
-
-        </article>
-
-        <article class="subject-card">
-
-            <div class="icon">🍫</div>
-
-            <h3>Le Pain au Chocolat</h3>
-
-            <p>
-                4 séances par mois avec un rendez-vous
-                hebdomadaire fixe.
-            </p>
-
-            <br>
-
-            <strong>98 €</strong>
-
-        </article>
-
-        <article class="subject-card">
-
-            <div class="icon">🥞</div>
-
-            <h3>Le Quatre-Heures Complet</h3>
-
-            <p>
-                8 séances par mois, réparties sur deux
-                matières au choix.
-            </p>
-
-            <br>
-
-            <strong>180 €</strong>
-
-        </article>
-
-        <article class="subject-card">
-
-            <div class="icon">🎓</div>
-
-            <h3>Le Menu Examen</h3>
-
-            <p>
-                Stage intensif d'une semaine avant le brevet
-                ou le bac blanc.
-            </p>
-
-            <br>
-
-            <strong>Sur devis</strong>
-
-        </article>
 
     </div>
 
 </section>
 
-<section class="section">
 
-    <div class="section-title">
-        <span>LE GOÛTER</span>
+<!-- =========================
+     TARIFS
+========================= -->
 
-        <h2>Une petite pause pour mieux repartir</h2>
+<section class="pricing-section">
+
+    <div class="container">
+
+        <div class="pricing-grid">
+
+
+            <!-- SOLO -->
+
+            <article class="pricing-card">
+
+                <h2>
+                    Goûter<br>Solo
+                </h2>
+
+                <div class="price">
+                    28 € <small>/ séance</small>
+                </div>
+
+                <p class="price-description">
+                    Une séance individuelle pour avancer
+                    sur les devoirs et reprendre confiance.
+                </p>
+
+                <ul>
+                    <li>1 heure de soutien</li>
+                    <li>À domicile ou en visio</li>
+                    <li>Du CP à la Terminale</li>
+                    <li>Accompagnement personnalisé</li>
+                </ul>
+
+                <a href="contact.html" class="btn">
+                    Choisir cette formule
+                </a>
+
+            </article>
+
+
+            <!-- PAIN AU CHOCOLAT -->
+
+            <article class="pricing-card featured">
+
+                <div class="pricing-badge">
+                    Populaire
+                </div>
+
+                <h2>
+                    Pain au<br>Chocolat
+                </h2>
+
+                <div class="price">
+                    98 € <small>/ forfait</small>
+                </div>
+
+                <p class="price-description">
+                    Une formule pour installer une vraie
+                    régularité dans le travail scolaire.
+                </p>
+
+                <ul>
+                    <li>4 séances individuelles</li>
+                    <li>Suivi personnalisé</li>
+                    <li>Objectifs définis ensemble</li>
+                    <li>À domicile ou en visio</li>
+                </ul>
+
+                <a href="contact.html" class="btn">
+                    Choisir cette formule
+                </a>
+
+            </article>
+
+
+            <!-- QUATRE-HEURES -->
+
+            <article class="pricing-card">
+
+                <h2>
+                    Quatre-Heures<br>Complet
+                </h2>
+
+                <div class="price">
+                    180 € <small>/ forfait</small>
+                </div>
+
+                <p class="price-description">
+                    Un accompagnement renforcé pour
+                    progresser durablement.
+                </p>
+
+                <ul>
+                    <li>8 séances individuelles</li>
+                    <li>Suivi régulier</li>
+                    <li>Préparation des contrôles</li>
+                    <li>Accompagnement personnalisé</li>
+                </ul>
+
+                <a href="contact.html" class="btn">
+                    Choisir cette formule
+                </a>
+
+            </article>
+
+
+            <!-- EXAMEN -->
+
+            <article class="pricing-card">
+
+                <h2>
+                    Menu<br>Examen
+                </h2>
+
+                <div class="price">
+                    Sur devis
+                </div>
+
+                <p class="price-description">
+                    Une préparation adaptée aux examens
+                    et aux échéances importantes.
+                </p>
+
+                <ul>
+                    <li>Programme personnalisé</li>
+                    <li>Révisions ciblées</li>
+                    <li>Méthodologie</li>
+                    <li>Préparation aux examens</li>
+                </ul>
+
+                <a href="contact.html" class="btn">
+                    Demander un devis
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GOÛTER
+========================= -->
+
+<section class="snack-section">
+
+    <div class="container">
+
+        <div class="snack-content">
+
+            <div>
+
+                <p class="eyebrow">
+                    Le petit plus
+                </p>
+
+                <h2>
+                    Un goûter pour apprendre
+                    dans une bonne ambiance.
+                </h2>
+
+                <p>
+                    Parce qu'une séance de soutien peut aussi être
+                    un moment agréable, Devoirs et Délices associe
+                    accompagnement scolaire et goûter gourmand.
+                </p>
+
+                <p>
+                    L'objectif : créer un cadre chaleureux,
+                    propice à la concentration et à la progression.
+                </p>
+
+            </div>
+
+
+            <div class="snack-box">
+
+                <h3>
+                    Au menu
+                </h3>
+
+                <ul>
+
+                    <li>
+                        🍫 Pain au chocolat
+                    </li>
+
+                    <li>
+                        🥐 Viennoiserie
+                    </li>
+
+                    <li>
+                        🍪 Goûter gourmand
+                    </li>
+
+                    <li>
+                        🥤 Boisson
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="pricing-cta">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            Une question ?
+        </p>
+
+        <h2>
+            Trouvons la formule adaptée.
+        </h2>
 
         <p>
-            Selon les jours, le goûter peut comprendre
-            des bugnes maison, des pancakes tout juste cuits
-            ou une part de gâteau aux pommes.
+            Contactez-nous pour discuter des besoins de votre enfant
+            et choisir l'accompagnement le plus adapté.
         </p>
+
+        <a href="contact.html" class="btn">
+            Nous contacter
+        </a>
+
     </div>
-
-</section>
-
-<section class="cta-section">
-
-    <h2>Vous ne savez pas quelle formule choisir ?</h2>
-
-    <p>
-        Contactez-nous et nous pourrons déterminer
-        ensemble la formule la plus adaptée.
-    </p>
-
-    <a href="contact.html" class="button">
-        Nous contacter
-    </a>
 
 </section>
 
 </main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    <div class="footer-content">
+    <div class="container">
 
-        <strong>Devoirs et Délices</strong>
-
-        <div>
-            <a href="index.html">Accueil</a>
-            <a href="tarifs.html">Tarifs</a>
-            <a href="avis.html">Avis</a>
-            <a href="contact.html">Contact</a>
-        </div>
+        <p>
+            © 2026 Devoirs et Délices — Soutien scolaire à domicile, Fréjus.
+        </p>
 
     </div>
-
-    <p>
-        © 2026 Devoirs et Délices — Soutien scolaire à Fréjus.
-    </p>
 
 </footer>
 
