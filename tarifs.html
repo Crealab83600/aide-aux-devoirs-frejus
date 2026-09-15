@@ -1,106 +1,175 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Packs & Tarifs | Devoirs & Délices</title>
-    <meta name="description" content="Découvrez nos tarifs de soutien scolaire à Fréjus et profitez de 50% de crédit d'impôt Service à la Personne.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Tarifs — Devoirs et Délices</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="nav-container">
-        <nav class="navbar">
-            <a href="index.html" class="logo">🧁 <span class="font-fredoka">Devoirs & Délices</span></a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link">Accueil & Méthode</a>
-                <a href="tarifs.html" class="nav-link active">Packs & Tarifs</a>
-                <a href="avis.html" class="nav-link">Avis</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-            <a href="contact.html" class="btn-nav">Réserver un bilan</a>
-        </nav>
+<header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Devoirs et Délices</a>
+
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="tarifs.html">Tarifs</a>
+            <a href="avis.html">Avis</a>
+            <a href="contact.html" class="nav-button">Réserver</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<section class="section">
+
+    <div class="section-title">
+        <span>LA CARTE DU GOÛTER</span>
+
+        <h1>
+            Des formules simples,
+            adaptées à votre rythme
+        </h1>
+
+        <p>
+            Choisissez la formule d'accompagnement qui
+            correspond aux besoins de votre enfant.
+            Le goûter maison est compris.
+        </p>
     </div>
 
-    <main>
-        <section class="page-hero">
-            <div class="container">
-                <h1 class="font-fredoka" style="font-size: 4rem;">Des tarifs simples et transparents 🏷️</h1>
-                <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 16px auto 0;">Investissez dans l'épanouissement scolaire de votre enfant en toute visibilité.</p>
-            </div>
-        </section>
+    <div class="subjects">
 
-        <section class="packs-section">
-            <div class="container">
-                <div class="pricing-grid">
-                    <!-- Pack 1 : Bilan -->
-                    <div class="price-card">
-                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="Bilan éducatif et diagnostic" class="card-img">
-                        <h3 class="price-name font-fredoka">Le Bilan 🔍</h3>
-                        <p style="color: var(--text-muted)">Pour faire un état des lieux complet.</p>
-                        <div class="price-val">15€<span> / séance (1h)</span></div>
-                        <ul class="price-features">
-                            <li>✨ Diagnostic d'apprentissage approfondi</li>
-                            <li>✨ Identification précise des blocages</li>
-                            <li>✨ Définition du profil d'attention</li>
-                            <li>✨ Plan de travail sur-mesure</li>
-                        </ul>
-                        <a href="contact.html" class="btn-secondary" style="text-align: center; justify-content: center;">Réserver mon bilan</a>
-                    </div>
+        <article class="subject-card">
 
-                    <!-- Pack 2 : Premium -->
-                    <div class="price-card popular">
-                        <div class="badge-pop">Recommandé</div>
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Cours particulier à domicile avec goûter" class="card-img">
-                        <h3 class="price-name font-fredoka">Le Premium 🚀</h3>
-                        <p style="color: var(--text-muted)">Un suivi individuel complet.</p>
-                        <div class="price-val">28€<span> / heure</span></div>
-                        <ul class="price-features">
-                            <li>✨ Soutien scolaire méthodologique</li>
-                            <li>✨ <strong>Goûter Délices Maison Inclus</strong></li>
-                            <li>✨ Suivi de progression régulier</li>
-                            <li>✨ Support WhatsApp 7j/7 pour questions</li>
-                        </ul>
-                        <a href="contact.html" class="btn-primary" style="text-align: center; justify-content: center;">Choisir ce pack</a>
-                    </div>
+            <div class="icon">🍪</div>
 
-                    <!-- Pack 3 : Duo -->
-                    <div class="price-card">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Cours en duo ou fratrie" class="card-img">
-                        <h3 class="price-name font-fredoka">Le Duo 🤝</h3>
-                        <p style="color: var(--text-muted)">Idéal pour fratrie ou amis.</p>
-                        <div class="price-val">20€<span> / élève / h</span></div>
-                        <ul class="price-features">
-                            <li>✨ Motivation et dynamique d'équipe</li>
-                            <li>✨ Pédagogie adaptée aux 2 élèves</li>
-                            <li>✨ Pause gourmande partagée</li>
-                            <li>✨ Fiches de révision structurées</li>
-                        </ul>
-                        <a href="contact.html" class="btn-secondary" style="text-align: center; justify-content: center;">Réserver à deux</a>
-                    </div>
-                </div>
+            <h3>Le Goûter Solo</h3>
 
-                <div class="tax-info-box">
-                    <div>
-                        <h3 class="font-fredoka" style="font-size: 1.8rem; margin-bottom: 6px;">Avantage Fiscal Service à la Personne 🧾</h3>
-                        <p style="color: var(--text-dark); opacity: 0.9;">Bénéficiez de <strong>50% de crédit d'impôt</strong> sur tous vos cours de soutien à domicile.</p>
-                    </div>
-                    <span style="font-size: 2.2rem; font-weight: 900; color: var(--primary); white-space: nowrap;">Coût réel divisé par 2</span>
-                </div>
-            </div>
-        </section>
-    </main>
+            <p>
+                Une séance à l'unité, idéale pour un coup
+                de pouce ponctuel avant un contrôle.
+            </p>
 
-    <footer>
-        <div class="container">
-            <p class="font-fredoka" style="font-size: 1.8rem; color: var(--primary-light); margin-bottom: 12px;">Devoirs & Délices 🧁</p>
-            <p>© 2026 Raphaël Maury - Soutien Scolaire & Pédagogie Positive à Fréjus</p>
+            <br>
+
+            <strong>28 €</strong>
+
+        </article>
+
+        <article class="subject-card">
+
+            <div class="icon">🍫</div>
+
+            <h3>Le Pain au Chocolat</h3>
+
+            <p>
+                4 séances par mois avec un rendez-vous
+                hebdomadaire fixe.
+            </p>
+
+            <br>
+
+            <strong>98 €</strong>
+
+        </article>
+
+        <article class="subject-card">
+
+            <div class="icon">🥞</div>
+
+            <h3>Le Quatre-Heures Complet</h3>
+
+            <p>
+                8 séances par mois, réparties sur deux
+                matières au choix.
+            </p>
+
+            <br>
+
+            <strong>180 €</strong>
+
+        </article>
+
+        <article class="subject-card">
+
+            <div class="icon">🎓</div>
+
+            <h3>Le Menu Examen</h3>
+
+            <p>
+                Stage intensif d'une semaine avant le brevet
+                ou le bac blanc.
+            </p>
+
+            <br>
+
+            <strong>Sur devis</strong>
+
+        </article>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="section-title">
+        <span>LE GOÛTER</span>
+
+        <h2>Une petite pause pour mieux repartir</h2>
+
+        <p>
+            Selon les jours, le goûter peut comprendre
+            des bugnes maison, des pancakes tout juste cuits
+            ou une part de gâteau aux pommes.
+        </p>
+    </div>
+
+</section>
+
+<section class="cta-section">
+
+    <h2>Vous ne savez pas quelle formule choisir ?</h2>
+
+    <p>
+        Contactez-nous et nous pourrons déterminer
+        ensemble la formule la plus adaptée.
+    </p>
+
+    <a href="contact.html" class="button">
+        Nous contacter
+    </a>
+
+</section>
+
+</main>
+
+<footer>
+
+    <div class="footer-content">
+
+        <strong>Devoirs et Délices</strong>
+
+        <div>
+            <a href="index.html">Accueil</a>
+            <a href="tarifs.html">Tarifs</a>
+            <a href="avis.html">Avis</a>
+            <a href="contact.html">Contact</a>
         </div>
-    </footer>
+
+    </div>
+
+    <p>
+        © 2026 Devoirs et Délices — Soutien scolaire à Fréjus.
+    </p>
+
+</footer>
 
 </body>
 </html>
+```
