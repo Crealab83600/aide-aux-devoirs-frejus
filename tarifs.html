@@ -1,585 +1,235 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devoirs & Délices — Tarifs</title>
+<meta name="description" content="Devoirs & Délices — soutien scolaire à Fréjus et en visio partout en France.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 
-    <title>Tarifs — Devoirs et Délices</title>
+<style>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+:root{
+  --papier:#F3F5FB;
+  --papier-pur:#FFFFFF;
+  --encre:#1C2545;
+  --encre-douce:#4A5478;
+  --reglure:#A7B6E2;
+  --reglure-pale:#D8E0F4;
+  --framboise:#C0386A;
+  --framboise-sombre:#93264F;
+  --sucre:#FFEFD9;
+  --rayon:14px;
+  --max:68rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--papier);color:var(--encre);
+  font-family:"Newsreader",Georgia,serif;font-size:1.0625rem;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.nav a,.bouton,.etiquette{font-family:"Bricolage Grotesque","Helvetica Neue",sans-serif}
+h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;font-weight:800;letter-spacing:-.025em;margin:0 0 1rem}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.12;font-weight:600;letter-spacing:-.02em;margin:0 0 .9rem}
+h3{font-size:1.15rem;font-weight:600;letter-spacing:-.01em;margin:0 0 .35rem}
+p{margin:0 0 1rem;max-width:62ch}
+a{color:var(--framboise-sombre)}
+.enveloppe{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
 
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+/* ---------- Navigation ---------- */
+.entete{position:sticky;top:0;z-index:50;background:rgba(243,245,251,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--reglure-pale)}
+.entete .enveloppe{display:flex;align-items:center;gap:1.25rem;min-height:72px;flex-wrap:wrap;padding-top:.6rem;padding-bottom:.6rem}
+.marque{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;text-decoration:none;color:var(--encre);line-height:1.1;padding-left:.85rem;border-left:3px solid var(--framboise);margin-right:auto}
+.marque span{display:block;font-weight:400;font-size:.78rem;color:var(--encre-douce);letter-spacing:0}
+.nav{display:flex;gap:.25rem;flex-wrap:wrap;align-items:center}
+.nav a{font-size:.95rem;font-weight:400;text-decoration:none;color:var(--encre-douce);padding:.4rem .6rem;border-radius:8px}
+.nav a:hover{color:var(--encre);background:var(--reglure-pale)}
+.nav a[aria-current="page"]{color:var(--encre);font-weight:600;box-shadow:inset 0 -2px 0 var(--framboise)}
+.bouton{display:inline-block;background:var(--framboise);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:.6rem 1.1rem;border-radius:999px;border:none;cursor:pointer}
+.bouton:hover{background:var(--framboise-sombre)}
+.bouton.fantome{background:transparent;color:var(--encre);box-shadow:inset 0 0 0 1.5px var(--reglure)}
+.bouton.fantome:hover{background:var(--papier-pur)}
+:focus-visible{outline:3px solid var(--framboise);outline-offset:3px;border-radius:4px}
 
-    <link rel="stylesheet" href="style.css">
+/* ---------- Pages ---------- */
+.page{display:block;padding:3.5rem 0 4.5rem}
 
-    <style>
-        /* =========================
-           PAGE TARIFS
-        ========================= */
+/* ---------- Héros : page de cahier ---------- */
+.cahier{
+  background:var(--papier-pur);
+  background-image:
+    repeating-linear-gradient(to bottom,transparent 0 31px,var(--reglure-pale) 31px 32px),
+    linear-gradient(to right,transparent 0 calc(2.6rem - 1px),#E8A0B4 calc(2.6rem - 1px),#E8A0B4 2.6rem,transparent 2.6rem);
+  border:1px solid var(--reglure-pale);border-radius:var(--rayon);
+  padding:3rem 2rem 2.5rem 3.6rem;margin-bottom:2.5rem;
+}
+@media (max-width:600px){.cahier{padding:2rem 1.2rem 1.8rem 2.4rem;background-size:auto, auto}}
+.cahier h1{margin-bottom:.6rem}
+.accroche{font-size:1.3rem;font-style:italic;color:var(--encre-douce);max-width:34ch;margin-bottom:1.6rem}
+.actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.8rem}
 
-        .pricing-hero {
-            padding: 90px 0 70px;
-            text-align: center;
-        }
+/* ---------- Repères clés ---------- */
+.reperes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--reglure-pale);border:1px solid var(--reglure-pale);border-radius:var(--rayon);overflow:hidden;margin-bottom:3.5rem}
+.repere{background:var(--papier-pur);padding:1.2rem 1.3rem}
+.repere strong{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.05rem}
+.repere span{font-size:.95rem;color:var(--encre-douce)}
 
-        .pricing-hero .eyebrow {
-            margin-bottom: 15px;
-        }
+/* ---------- Blocs ---------- */
+.bloc{margin-bottom:3.5rem}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;align-items:start}
+.piliers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem;margin-top:1.8rem}
+.pilier{padding-left:1rem;border-left:2px solid var(--reglure)}
+.pilier:last-child{border-left-color:var(--framboise)}
+.pilier p{font-size:.98rem;color:var(--encre-douce);margin:0}
 
-        .pricing-hero h1 {
-            font-family: "Fraunces", serif;
-            font-size: clamp(42px, 6vw, 72px);
-            line-height: 1.05;
-            margin: 0 auto 22px;
-            max-width: 850px;
-        }
+.liste-propre{list-style:none;padding:0;margin:0}
+.liste-propre li{padding:.55rem 0;border-bottom:1px solid var(--reglure-pale)}
+.liste-propre li:last-child{border-bottom:none}
 
-        .pricing-hero p {
-            max-width: 680px;
-            margin: auto;
-            font-size: 18px;
-            line-height: 1.7;
-        }
+.matieres{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 0;padding:0;list-style:none}
+.matieres li{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:999px;padding:.35rem .9rem;font-size:.95rem}
 
-        .pricing-section {
-            padding: 40px 0 100px;
-        }
+.prestation{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:var(--rayon);padding:1.4rem 1.5rem;margin-bottom:1rem}
+.prestation p{margin:0;color:var(--encre-douce);font-size:1rem}
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-            align-items: stretch;
-        }
+/* ---------- Délices ---------- */
+.delices{background:var(--sucre);border-radius:var(--rayon);padding:2rem 2rem;border:1px solid #F0DCC0}
+.delices h2{margin-top:0}
+.delices p{color:#5E4630}
+.alerte-allergenes{font-size:.95rem;background:var(--papier-pur);border-left:3px solid var(--framboise);padding:.8rem 1rem;border-radius:0 8px 8px 0;margin-top:1.2rem}
+.alerte-allergenes p{margin:0;color:var(--encre)}
 
-        .pricing-card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            padding: 32px 26px;
-            border-radius: 24px;
-            background: var(--cream, #f8f3e9);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            transition: transform .25s ease, box-shadow .25s ease;
-        }
+/* ---------- Tarifs ---------- */
+.tarifs{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.2rem;margin-bottom:2rem}
+.tarif{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:var(--rayon);padding:1.5rem}
+.tarif.pref{border-color:var(--framboise);box-shadow:0 0 0 1px var(--framboise)}
+.prix{font-family:"Bricolage Grotesque",sans-serif;font-size:2.1rem;font-weight:800;letter-spacing:-.03em;display:block;margin:.4rem 0 .2rem}
+.prix em{font-size:.9rem;font-weight:400;font-style:normal;color:var(--encre-douce);letter-spacing:0}
+.tarif ul{padding-left:1.1rem;margin:.8rem 0 0;font-size:.97rem;color:var(--encre-douce)}
 
-        .pricing-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, .10);
-        }
+/* ---------- FAQ ---------- */
+details{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:10px;padding:.9rem 1.1rem;margin-bottom:.6rem}
+summary{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;cursor:pointer;font-size:1rem}
+details p{margin:.7rem 0 0;color:var(--encre-douce);font-size:.98rem}
 
-        .pricing-card.featured {
-            background: var(--green, #274c3b);
-            color: white;
-            border-color: transparent;
-        }
+/* ---------- Pied de page ---------- */
+.pied{border-top:1px solid var(--reglure-pale);background:var(--papier-pur);padding:2.5rem 0;font-size:.94rem;color:var(--encre-douce)}
+.pied .enveloppe{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem}
+.pied a{color:var(--encre-douce);text-decoration:none;display:block;padding:.15rem 0}
+.pied a:hover{color:var(--framboise-sombre);text-decoration:underline}
+.pied h3{font-size:.95rem;margin-bottom:.5rem}
+.contacts{display:grid;gap:.9rem;margin-top:1.4rem}
+.contact-carte{display:block;background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:var(--rayon);padding:1.2rem 1.4rem;text-decoration:none;color:var(--encre)}
+.contact-carte:hover{border-color:var(--framboise)}
+.contact-quoi{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:.92rem;color:var(--encre-douce)}
+.contact-valeur{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-.02em;color:var(--framboise-sombre);word-break:break-word;margin:.15rem 0 .25rem}
+.contact-carte .note{display:block}
+.a-completer{background:#FFF8E1;border:1px dashed #D8B45A;border-radius:8px;padding:.7rem .9rem;font-size:.9rem;color:#6B5420;margin:1rem 0}
+.a-completer p{margin:0;max-width:none}
 
-        .pricing-card.featured .price-description,
-        .pricing-card.featured li {
-            color: rgba(255, 255, 255, .82);
-        }
+/* ---------- Navigation multipage ---------- */
+.nav a.active{color:var(--encre);font-weight:600;box-shadow:inset 0 -2px 0 var(--framboise)}
+.avis-vide{background:var(--papier-pur);border:1px solid var(--reglure-pale);border-radius:var(--rayon);padding:2rem}
+.avis-vide p{color:var(--encre-douce)}
 
-        .pricing-card h2 {
-            font-family: "Fraunces", serif;
-            font-size: 27px;
-            line-height: 1.15;
-            margin: 0 0 12px;
-        }
-
-        .price {
-            font-family: "Fraunces", serif;
-            font-size: 43px;
-            font-weight: 700;
-            margin: 10px 0 5px;
-        }
-
-        .price small {
-            font-family: "Karla", sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .price-description {
-            color: #5f625d;
-            line-height: 1.6;
-            min-height: 78px;
-            margin-bottom: 22px;
-        }
-
-        .pricing-card ul {
-            padding: 0;
-            margin: 0 0 28px;
-            list-style: none;
-        }
-
-        .pricing-card li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-            line-height: 1.5;
-            color: #4e514d;
-        }
-
-        .pricing-card li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-weight: 700;
-        }
-
-        .pricing-card .btn {
-            margin-top: auto;
-            width: 100%;
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        .pricing-card.featured .btn {
-            background: white;
-            color: var(--green, #274c3b);
-        }
-
-        /* Badge */
-        .pricing-badge {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: var(--orange, #e49a5c);
-            color: #fff;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        /* Goûter */
-        .snack-section {
-            padding: 90px 0;
-            background: var(--cream, #f8f3e9);
-        }
-
-        .snack-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .snack-content h2 {
-            font-family: "Fraunces", serif;
-            font-size: clamp(34px, 4vw, 52px);
-            line-height: 1.1;
-            margin: 0 0 20px;
-        }
-
-        .snack-content p {
-            font-size: 17px;
-            line-height: 1.75;
-            color: #555953;
-        }
-
-        .snack-box {
-            padding: 35px;
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, .07);
-        }
-
-        .snack-box h3 {
-            font-family: "Fraunces", serif;
-            font-size: 28px;
-            margin-top: 0;
-        }
-
-        .snack-box ul {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
-
-        .snack-box li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, .08);
-        }
-
-        .snack-box li:last-child {
-            border-bottom: 0;
-        }
-
-        /* CTA */
-        .pricing-cta {
-            padding: 90px 0;
-            text-align: center;
-        }
-
-        .pricing-cta h2 {
-            font-family: "Fraunces", serif;
-            font-size: clamp(34px, 4vw, 52px);
-            margin: 0 0 15px;
-        }
-
-        .pricing-cta p {
-            margin: 0 auto 28px;
-            max-width: 600px;
-            line-height: 1.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 1000px) {
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .snack-content {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-        }
-
-        @media (max-width: 650px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-hero {
-                padding: 65px 0 45px;
-            }
-
-            .pricing-section {
-                padding-bottom: 70px;
-            }
-
-            .snack-section,
-            .pricing-cta {
-                padding: 65px 0;
-            }
-        }
-    </style>
+</style>
 </head>
-
 <body>
-
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-    <div class="container nav">
-
-        <a href="index.html" class="logo">
-            Devoirs <span>&</span> Délices
-        </a>
-
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="tarifs.html" class="active">Tarifs</a>
-            <a href="avis.html">Avis</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <a href="contact.html" class="btn">
-            Réserver une séance
-        </a>
-
-    </div>
+<header class="entete">
+  <div class="enveloppe">
+    <a class="marque" href="index.html">Devoirs &amp; Délices<span>Fréjus &amp; visio</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#qui">Qui suis-je</a>
+      <a href="index.html#cours">Cours & matières</a>
+      <a href="tarifs.html" class="active">Tarifs</a>
+      <a href="avis.html">Avis</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="bouton">Demander une séance</a>
+    </nav>
+  </div>
 </header>
-
-
 <main>
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="pricing-hero">
-
-    <div class="container">
-
-        <p class="eyebrow">
-            Des formules simples
-        </p>
-
-        <h1>
-            Des tarifs clairs,<br>
-            pour apprendre sereinement.
-        </h1>
-
-        <p>
-            Choisissez la formule qui correspond le mieux
-            aux besoins de votre enfant.
-        </p>
-
-    </div>
-
+<section class="" id="tarifs">
+<div class="enveloppe">
+<h1>Tarifs</h1>
+<p>Tout est indiqué avant la première séance, sans frais d'inscription ni engagement de durée.</p>
+<div class="a-completer"><p>Tarifs envisagés, à valider avec mes parents (statut, facturation, assurance) avant de les publier définitivement.</p></div>
+<div class="tarifs">
+<div class="tarif">
+<h3>Séance à Fréjus</h3>
+<span class="prix">15 € <em>/ séance d'1 h</em></span>
+<ul><li>Un élève à la fois</li><li>Bilan de fin de séance</li><li>Goûter possible</li></ul>
+</div>
+<div class="tarif">
+<h3>Séance en visio</h3>
+<span class="prix">12 € <em>/ séance d'1 h</em></span>
+<ul><li>Partout en France</li><li>Supports envoyés après la séance</li></ul>
+</div>
+<div class="tarif pref">
+<h3>Pack 5 séances</h3>
+<span class="prix">70 € <em>Fréjus, soit 14 € la séance</em></span>
+<ul><li>55 € en visio, soit 11 € la séance</li><li>Valable 3 mois</li><li>Réglé en une fois</li></ul>
+</div>
+<div class="tarif">
+<h3>Pack 10 séances</h3>
+<span class="prix">135 € <em>Fréjus, soit 13,50 € la séance</em></span>
+<ul><li>105 € en visio, soit 10,50 € la séance</li><li>Valable 6 mois</li><li>Idéal pour un suivi à l'année</li></ul>
+</div>
+</div>
+<div class="bloc">
+<p class="note">Goûter maison inclus, sans supplément, en présentiel et avec l'accord du parent ou du responsable légal.</p>
+</div>
+<div class="bloc duo">
+<div>
+<h2>Paiement</h2>
+<p>Le paiement se fait par carte bancaire directement chez Devoirs &amp; Délices pour les séances en présentiel à Fréjus. Pour les séances en visio, le règlement se fait par virement bancaire. Les chèques ne sont pas acceptés. Le paiement est effectué par le parent ou le responsable légal.</p>
+</div>
+<div>
+<h2>Annulation</h2>
+<p>Une séance peut être annulée ou déplacée gratuitement jusqu'à [XX] heures avant. Au-delà, elle est décomptée du pack ou due. En cas d'imprévu de mon côté, la séance est reportée ou remboursée.</p>
+</div>
+</div>
+<div class="bloc">
+<h2>Questions fréquentes</h2>
+<details><summary>À quel âge s'adressent les cours ?</summary><p>De la 6e à la terminale, soit environ 12 à 18 ans.</p></details>
+<details><summary>Les cours sont-ils individuels ?</summary><p>Oui, une séance concerne un seul élève, pour s'adapter à son niveau et à ses besoins.</p></details>
+<details><summary>Combien de temps dure une séance ?</summary><p>1 heure, en présentiel comme en visio.</p></details>
+<details><summary>Comment réserver ?</summary><p>Par e-mail à raphaelmaury83600@gmail.com ou par téléphone au 06 50 02 15 65. Je réponds sous 48 heures pour confirmer un créneau.</p></details>
+<details><summary>Le goûter est-il compris ?</summary><p>Il est inclus dans la séance en présentiel, sans supplément, et reste entièrement facultatif : il n'est proposé qu'avec l'accord du parent ou du responsable légal.</p></details>
+<details><summary>Quels allergènes peut contenir le goûter ?</summary><p>Les recettes contiennent généralement gluten, œufs, lait et beurre, et peuvent contenir des fruits à coque. Signalez-moi toute allergie ou intolérance à l'inscription : le goûter peut être adapté ou simplement supprimé.</p></details>
+<details><summary>Les parents ont-ils un retour après la séance ?</summary><p>Oui, sur demande : un court bilan de ce qui a été travaillé et de ce qui reste à revoir.</p></details>
+</div>
+</div>
 </section>
-
-
-<!-- =========================
-     TARIFS
-========================= -->
-
-<section class="pricing-section">
-
-    <div class="container">
-
-        <div class="pricing-grid">
-
-
-            <!-- SOLO -->
-
-            <article class="pricing-card">
-
-                <h2>
-                    Goûter<br>Solo
-                </h2>
-
-                <div class="price">
-                    28 € <small>/ séance</small>
-                </div>
-
-                <p class="price-description">
-                    Une séance individuelle pour avancer
-                    sur les devoirs et reprendre confiance.
-                </p>
-
-                <ul>
-                    <li>1 heure de soutien</li>
-                    <li>À domicile ou en visio</li>
-                    <li>Du CP à la Terminale</li>
-                    <li>Accompagnement personnalisé</li>
-                </ul>
-
-                <a href="contact.html" class="btn">
-                    Choisir cette formule
-                </a>
-
-            </article>
-
-
-            <!-- PAIN AU CHOCOLAT -->
-
-            <article class="pricing-card featured">
-
-                <div class="pricing-badge">
-                    Populaire
-                </div>
-
-                <h2>
-                    Pain au<br>Chocolat
-                </h2>
-
-                <div class="price">
-                    98 € <small>/ forfait</small>
-                </div>
-
-                <p class="price-description">
-                    Une formule pour installer une vraie
-                    régularité dans le travail scolaire.
-                </p>
-
-                <ul>
-                    <li>4 séances individuelles</li>
-                    <li>Suivi personnalisé</li>
-                    <li>Objectifs définis ensemble</li>
-                    <li>À domicile ou en visio</li>
-                </ul>
-
-                <a href="contact.html" class="btn">
-                    Choisir cette formule
-                </a>
-
-            </article>
-
-
-            <!-- QUATRE-HEURES -->
-
-            <article class="pricing-card">
-
-                <h2>
-                    Quatre-Heures<br>Complet
-                </h2>
-
-                <div class="price">
-                    180 € <small>/ forfait</small>
-                </div>
-
-                <p class="price-description">
-                    Un accompagnement renforcé pour
-                    progresser durablement.
-                </p>
-
-                <ul>
-                    <li>8 séances individuelles</li>
-                    <li>Suivi régulier</li>
-                    <li>Préparation des contrôles</li>
-                    <li>Accompagnement personnalisé</li>
-                </ul>
-
-                <a href="contact.html" class="btn">
-                    Choisir cette formule
-                </a>
-
-            </article>
-
-
-            <!-- EXAMEN -->
-
-            <article class="pricing-card">
-
-                <h2>
-                    Menu<br>Examen
-                </h2>
-
-                <div class="price">
-                    Sur devis
-                </div>
-
-                <p class="price-description">
-                    Une préparation adaptée aux examens
-                    et aux échéances importantes.
-                </p>
-
-                <ul>
-                    <li>Programme personnalisé</li>
-                    <li>Révisions ciblées</li>
-                    <li>Méthodologie</li>
-                    <li>Préparation aux examens</li>
-                </ul>
-
-                <a href="contact.html" class="btn">
-                    Demander un devis
-                </a>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     GOÛTER
-========================= -->
-
-<section class="snack-section">
-
-    <div class="container">
-
-        <div class="snack-content">
-
-            <div>
-
-                <p class="eyebrow">
-                    Le petit plus
-                </p>
-
-                <h2>
-                    Un goûter pour apprendre
-                    dans une bonne ambiance.
-                </h2>
-
-                <p>
-                    Parce qu'une séance de soutien peut aussi être
-                    un moment agréable, Devoirs et Délices associe
-                    accompagnement scolaire et goûter gourmand.
-                </p>
-
-                <p>
-                    L'objectif : créer un cadre chaleureux,
-                    propice à la concentration et à la progression.
-                </p>
-
-            </div>
-
-
-            <div class="snack-box">
-
-                <h3>
-                    Au menu
-                </h3>
-
-                <ul>
-
-                    <li>
-                        🍫 Pain au chocolat
-                    </li>
-
-                    <li>
-                        🥐 Viennoiserie
-                    </li>
-
-                    <li>
-                        🍪 Goûter gourmand
-                    </li>
-
-                    <li>
-                        🥤 Boisson
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="pricing-cta">
-
-    <div class="container">
-
-        <p class="eyebrow">
-            Une question ?
-        </p>
-
-        <h2>
-            Trouvons la formule adaptée.
-        </h2>
-
-        <p>
-            Contactez-nous pour discuter des besoins de votre enfant
-            et choisir l'accompagnement le plus adapté.
-        </p>
-
-        <a href="contact.html" class="btn">
-            Nous contacter
-        </a>
-
-    </div>
-
-</section>
-
 </main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="container">
-
-        <p>
-            © 2026 Devoirs et Délices — Soutien scolaire à domicile, Fréjus.
-        </p>
-
+<footer class="pied">
+  <div class="enveloppe">
+    <div>
+      <h3>Devoirs &amp; Délices</h3>
+      <p>Soutien scolaire pour les 12–18 ans, à Fréjus et en visio.</p>
+      <a href="mailto:raphaelmaury83600@gmail.com">raphaelmaury83600@gmail.com</a>
+      <a href="tel:+33650021565">06 50 02 15 65</a>
     </div>
-
+    <div>
+      <h3>Le site</h3>
+      <a href="index.html">Accueil</a>
+      <a href="index.html#qui">Qui suis-je</a>
+      <a href="index.html#cours">Cours &amp; matières</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="avis.html">Avis</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h3>Informations</h3>
+      <a href="contact.html#mentions">Mentions légales</a>
+      <a href="contact.html#confidentialite">Politique de confidentialité</a>
+    </div>
+  </div>
 </footer>
-
 </body>
 </html>
-```
