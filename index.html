@@ -1,1 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devoirs &amp; Délices — Soutien scolaire à Fréjus et en visio</title>
+<meta name="description" content="Aide aux devoirs et méthodologie pour les élèves de 12 à 18 ans, à Fréjus ou en visio partout en France. Toutes les matières, et un goûter maison en fin de séance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --accent: #E11D48;
+  --accent-hover: #BE123C;
+  --accent-soft: #FFE4E6;
+  --text-dark: #0F172A;
+  --text-muted: #475569;
+  --border-light: #E2E8F0;
+  --sucre-soft: #FFF7ED;
+  --sucre-border: #FFEDD5;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  --shadow-hover: 0 20px 30px -10px rgba(79, 70, 229, 0.15);
+  --max-width: 72rem;
+}
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .brand, .btn, .badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.2rem; color: var(--text-dark); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.01em; margin-bottom: 1rem; color: var(--text-dark); }
+h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1rem; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+
+/* ---------- En-tête / Navigation ---------- */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+}
+.header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 76px; padding-top: 0.5rem; padding-bottom: 0.5rem;
+}
+.brand {
+  text-decoration: none; font-weight: 800; font-size: 1.25rem; color: var(--text-dark);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.brand span.dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; display: inline-block; }
+.brand sub { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+
+.nav { display: flex; gap: 0.5rem; align-items: center; }
+.nav a {
+  text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem;
+  padding: 0.5rem 0.9rem; border-radius: var(--radius-md); transition: all 0.2s ease;
+}
+.nav a:hover { color: var(--primary); background: rgba(79, 70, 229, 0.05); }
+.nav a[aria-current="page"] { color: var(--primary); background: rgba(79, 70, 229, 0.1); }
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--primary); color: #fff; text-decoration: none; font-weight: 700;
+  font-size: 0.95rem; padding: 0.75rem 1.4rem; border-radius: 999px;
+  border: none; cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+.btn:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.btn-accent { background: var(--accent); box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25); }
+.btn-accent:hover { background: var(--accent-hover); }
+.btn-outline { background: transparent; color: var(--text-dark); border: 1.5px solid var(--border-light); box-shadow: none; }
+.btn-outline:hover { background: #fff; border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+
+/* ---------- Pages & Structure ---------- */
+.page { display: none; padding: 3rem 0 5rem; animation: fadeIn 0.3s ease-in-out; }
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ---------- Hero Section ---------- */
+.hero {
+  background: linear-gradient(135deg, #FFFFFF 0%, #EEF2FF 100%);
+  border: 1px solid var(--border-light); border-radius: var(--radius-lg);
+  padding: 3.5rem 2.5rem; margin-bottom: 2.5rem; box-shadow: var(--shadow-md);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(225,29,72,0.15) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.hero-tag { display: inline-block; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 0.85rem; padding: 0.35rem 0.8rem; border-radius: 999px; margin-bottom: 1rem; }
+.hero p.lead { font-size: 1.25rem; color: var(--text-muted); max-width: 36ch; margin-bottom: 1.8rem; }
+.actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ---------- Repères & Grilles ---------- */
+.reperes { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 3.5rem; }
+.repere-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.2rem 1.5rem; box-shadow: var(--shadow-sm); transition: transform 0.2s; }
+.repere-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+.repere-card strong { display: block; font-size: 1.15rem; color: var(--primary); font-weight: 800; }
+.repere-card span { font-size: 0.95rem; color: var(--text-muted); }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+.card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm); }
+
+.card-delices { background: var(--sucre-soft); border-color: var(--sucre-border); }
+.card-delices h2 { color: #9A3412; }
+.card-delices p { color: #C2410C; }
+
+/* ---------- Piliers & Listes ---------- */
+.piliers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.pilier { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; border-top: 4px solid var(--primary); }
+.pilier:nth-child(2) { border-top-color: #0EA5E9; }
+.pilier:nth-child(3) { border-top-color: #10B981; }
+.pilier:nth-child(4) { border-top-color: var(--accent); }
+
+.clean-list { list-style: none; }
+.clean-list li { padding: 0.75rem 0; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; gap: 0.6rem; color: var(--text-dark); }
+.clean-list li:last-child { border-bottom: none; }
+.clean-list li::before { content: '✓'; color: var(--primary); font-weight: 800; }
+
+/* ---------- Tags & Matières ---------- */
+.tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+.tag { background: #F1F5F9; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; padding: 0.4rem 0.9rem; border-radius: 999px; border: 1px solid var(--border-light); }
+
+/* ---------- Tarifs ---------- */
+.tarifs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+.tarif-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2rem 1.5rem; position: relative; box-shadow: var(--shadow-sm); transition: all 0.2s; }
+.tarif-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.tarif-card.popular { border: 2px solid var(--primary); box-shadow: 0 10px 25px rgba(79, 70, 229, 0.15); }
+.badge-pop { position: absolute; top: -12px; right: 20px; background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 999px; text-transform: uppercase; }
+.price { font-size: 2.2rem; font-weight: 800; color: var(--text-dark); margin: 0.8rem 0; }
+.price span { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+
+/* ---------- FAQ ---------- */
+details { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem 1.2rem; margin-bottom: 0.8rem; }
+summary { font-weight: 700; cursor: pointer; color: var(--text-dark); }
+details p { margin-top: 0.8rem; font-size: 0.95rem; }
+
+/* ---------- Contact Cards ---------- */
+.contact-card { display: block; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; text-decoration: none; margin-bottom: 1rem; transition: all 0.2s; }
+.contact-card:hover { border-color: var(--primary); transform: translateX(4px); }
+.contact-val { font-size: 1.25rem; font-weight: 800; color: var(--primary); }
+
+.a-completer { background: #FEF3C7; border: 1px dashed #F59E0B; border-radius: var(--radius-md); padding: 1rem; font-size: 0.9rem; color: #92400E; margin: 1.5rem 0; }
+
+/* ---------- Pied de page ---------- */
+.footer { background: #FFFFFF; border-top: 1px solid var(--border-light); padding: 3rem 0; margin-top: 4rem; color: var(--text-muted); font-size: 0.95rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+.footer a { color: var(--text-muted); text-decoration: none; display: block; margin-bottom: 0.4rem; }
+.footer a:hover { color: var(--primary); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a class="brand" href="#accueil" data-lien="accueil">
+      Devoirs &amp; Délices <span class="dot"></span>
+      <sub>Fréjus &amp; Visio</sub>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#accueil" data-lien="accueil">Accueil</a>
+      <a href="#qui" data-lien="qui">Qui suis-je</a>
+      <a href="#cours" data-lien="cours">Cours</a>
+      <a href="#tarifs" data-lien="tarifs">Tarifs</a>
+      <a href="#contact" data-lien="contact">Contact</a>
+      <a href="#contact" class="btn" data-lien="contact">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ================= 1. ACCUEIL ================= -->
+<section class="page active" id="accueil">
+  <div class="hero">
+    <span class="hero-tag">Soutien scolaire 12–18 ans</span>
+    <h1>Des devoirs, de la méthode…<br>et une touche de plaisir.</h1>
+    <p class="lead">Accompagnement personnalisé à Fréjus ou en visio partout en France. On débloque les notions difficiles et on termine avec le sourire.</p>
+    <div class="actions">
+      <a href="#cours" class="btn" data-lien="cours">Découvrir les cours</a>
+      <a href="#contact" class="btn btn-outline" data-lien="contact">Réserver une séance</a>
+    </div>
+  </div>
+
+  <div class="reperes">
+    <div class="repere-card"><strong>12 à 18 ans</strong><span>Collège &amp; Lycée</span></div>
+    <div class="repere-card"><strong>Fréjus</strong><span>Séances en présentiel</span></div>
+    <div class="repere-card"><strong>En Visio</strong><span>Partout en France</span></div>
+    <div class="repere-card"><strong>Goûter Maison</strong><span>Inclus en présentiel</span></div>
+  </div>
+
+  <div style="margin-bottom: 3.5rem;">
+    <h2>Les 4 piliers d'une séance réussie</h2>
+    <div class="piliers">
+      <div class="pilier"><h3> Apprendre</h3><p>Comprendre la logique en profondeur au lieu de simplement recopier une correction.</p></div>
+      <div class="pilier"><h3> Progresser</h3><p>Acquérir une méthode de travail solide et réutilisable toute l'année.</p></div>
+      <div class="pilier"><h3> Échanger</h3><p>Un cadre bienveillant pour poser toutes ses questions sans peur de se tromper.</p></div>
+      <div class="pilier"><h3> Partager</h3><p>Terminer le travail dans la bonne humeur autour d'une pause conviviale.</p></div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>Déroulement d'une séance</h2>
+      <ul class="clean-list">
+        <li>Revue des cours, des devoirs et des blocages récents.</li>
+        <li>Explication simple et concrète des notions non acquises.</li>
+        <li>Mise en pratique directe avec des exercices guidés.</li>
+        <li>Bilan court transmise au parent après chaque cours.</li>
+      </ul>
+    </div>
+    <div class="card card-delices">
+      <h2>Et la touche « Délices » ?</h2>
+      <p>En présentiel, la séance se conclut avec un goûter maison (tarte, pancakes, pâtisseries) offert pour récompenser l'effort et relâcher la pression.</p>
+      <p style="font-size:0.85rem; opacity:0.9;">⚠️ <strong>Allergies :</strong> Signalez-les au préalable. Le goûter reste facultatif et soumis à l'accord parental.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. QUI SUIS-JE ================= -->
+<section class="page" id="qui">
+  <h1>Qui suis-je ?</h1>
+  <div class="grid-2">
+    <div class="card">
+      <h2>Bonjour, moi c'est Raphaël</h2>
+      <p>J'ai 17 ans et je suis élève en [classe] au lycée [nom] à Fréjus.</p>
+      <p>J'ai créé **Devoirs &amp; Délices** pour proposer un accompagnement scolaire dynamique et sans stress. Être proche de l'âge de mes élèves est une vraie force : je connais parfaitement les exigences actuelles des programmes et le langage des élèves.</p>
+      <p>Mon objectif principal : redonner confiance et transmettre des méthodes de travail claires.</p>
+      <div class="a-completer">Note : Vous pouvez personnaliser cette présentation avec votre parcours exact et votre photo avec l'accord parental.</div>
+    </div>
+    <div class="card">
+      <h2>Mes engagements</h2>
+      <ul class="clean-list">
+        <li><strong>Uniquement du cours individuel :</strong> 100% de mon attention est dédiée à un seul élève.</li>
+        <li><strong>Patience et écoute :</strong> Pas de jugement sur les notes ou les difficultés.</li>
+        <li><strong>Rigueur &amp; Ponctualité :</strong> Suivi sérieux et retours réguliers aux parents.</li>
+        <li><strong>Sécurité &amp; Transparence :</strong> Les échanges et paiements se font exclusivement avec les représentants légaux.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. COURS & MATIÈRES ================= -->
+<section class="page" id="cours">
+  <h1>Cours &amp; Matières</h1>
+  <p class="lead">Un accompagnement ciblé sur les besoins réels de l'élève.</p>
+
+  <div class="grid-2" style="margin-top:2rem">
+    <div class="card">
+      <h2>Au Collège</h2>
+      <div class="tags">
+        <span class="tag">Mathématiques</span><span class="tag">Français</span>
+        <span class="tag">Anglais</span><span class="tag">Histoire-Géo</span>
+        <span class="tag">SVT</span><span class="tag">Physique-Chimie</span>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Au Lycée</h2>
+      <div class="tags">
+        <span class="tag">Mathématiques</span><span class="tag">Français</span>
+        <span class="tag">Anglais</span><span class="tag">Histoire-Géo</span>
+        <span class="tag">SES</span><span class="tag">SVT</span><span class="tag">Physique-Chimie</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1.5rem">
+    <h2>Format des séances</h2>
+    <div class="grid-2" style="margin-bottom:0">
+      <div>
+        <h3>📍 En présentiel (Fréjus)</h3>
+        <p>Espace de travail calme, matériel à disposition et goûter maison inclus en fin de séance.</p>
+      </div>
+      <div>
+        <h3>💻 En Visio (Google Meet / Zoom)</h3>
+        <p>Séance interactive à distance, partage d'écran et envoi des fiches de synthèse après le cours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. TARIFS ================= -->
+<section class="page" id="tarifs">
+  <h1>Tarifs transparents</h1>
+  <p>Aucun frais d'inscription, aucun engagement dans la durée.</p>
+
+  <div class="tarifs-grid">
+    <div class="tarif-card">
+      <h3>Séance Fréjus</h3>
+      <div class="price">15 € <span>/ 1h</span></div>
+      <p>En présentiel avec bilan et goûter inclus.</p>
+    </div>
+    <div class="tarif-card">
+      <h3>Séance Visio</h3>
+      <div class="price">12 € <span>/ 1h</span></div>
+      <p>À distance partout en France.</p>
+    </div>
+    <div class="tarif-card popular">
+      <span class="badge-pop">Recommandé</span>
+      <h3>Pack 5 Séances</h3>
+      <div class="price">70 € <span>(14€/h)</span></div>
+      <p>Valable 3 mois. Économique et régulier.</p>
+    </div>
+    <div class="tarif-card">
+      <h3>Pack 10 Séances</h3>
+      <div class="price">135 € <span>(13,50€/h)</span></div>
+      <p>Valable 6 mois. Idéal pour un suivi annuel.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:2rem">
+    <h2>Foire aux questions</h2>
+    <details><summary>À qui s'adressent les cours ?</summary><p>Aux élèves de la 6ème à la Terminale (12 à 18 ans).</p></details>
+    <details><summary>Comment effectuer la réservation ?</summary><p>La réservation s'effectue directement par le parent par téléphone ou e-mail.</p></details>
+    <details><summary>Quelles sont les modalités d'annulation ?</summary><p>Annulation gratuite jusqu'à 24h avant le cours convenu.</p></details>
+  </div>
+</section>
+
+<!-- ================= 5. CONTACT ================= -->
+<section class="page" id="contact">
+  <h1>Demander une séance</h1>
+  <p class="lead">Réponse rapide sous 48 heures maximum.</p>
+
+  <div class="grid-2">
+    <div>
+      <a class="contact-card" href="mailto:raphaelmaury83600@gmail.com">
+        <div>Écrivez-moi par e-mail</div>
+        <div class="contact-val">raphaelmaury83600@gmail.com</div>
+      </a>
+      <a class="contact-card" href="tel:+33650021565">
+        <div>Appelez-moi directement</div>
+        <div class="contact-val">06 50 02 15 65</div>
+      </a>
+    </div>
+    <div class="card">
+      <h2>Informations à préciser</h2>
+      <ul class="clean-list">
+        <li>Prénom et classe de l'élève</li>
+        <li>Matière(s) à travailler</li>
+        <li>Format souhaité (Fréjus ou Visio)</li>
+        <li>Allergies éventuelles pour le goûter</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>Devoirs &amp; Délices</h3>
+      <p>Soutien scolaire &amp; méthodologie.</p>
+    </div>
+    <div>
+      <h3>Navigation</h3>
+      <a href="#accueil" data-lien="accueil">Accueil</a>
+      <a href="#cours" data-lien="cours">Cours</a>
+      <a href="#tarifs" data-lien="tarifs">Tarifs</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Fréjus (83600)</p>
+      <a href="mailto:raphaelmaury83600@gmail.com">raphaelmaury83600@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages = document.querySelectorAll('.page');
+  var liens = document.querySelectorAll('.nav a[data-lien]');
+
+  function afficher(id){
+    var cible = document.getElementById(id) ? id : 'accueil';
+    pages.forEach(function(p){ p.classList.toggle('active', p.id === cible); });
+    liens.forEach(function(a){
+      if(a.classList.contains('btn')) return;
+      if(a.getAttribute('data-lien') === cible){ a.setAttribute('aria-current','page'); }
+      else { a.removeAttribute('aria-current'); }
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  document.querySelectorAll('a[data-lien]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = a.getAttribute('data-lien');
+      history.pushState(null, '', '#' + id);
+      afficher(id);
+    });
+  });
+
+  window.addEventListener('popstate', function(){
+    afficher(location.hash.replace('#','') || 'accueil');
+  });
+
+  afficher(location.hash.replace('#','') || 'accueil');
+})();
+</script>
+</body>
+</html>
